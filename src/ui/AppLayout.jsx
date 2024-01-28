@@ -16,7 +16,7 @@ export default function AppLayout({
       <Header />
 
       {/* Search Section */}
-      <div className="overflow-x-auto h-40">
+      <div className="">
         <SearchSection
           currency={currency}
           setCurrency={setCurrency}
