@@ -32,7 +32,7 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
               </thead>
               <tbody>
                 {nftObj
-                  .filter((item) => item.ranking <= 100)
+                  .filter((item) => item.ranking <= 420)
                   .sort((a, b) => a.ranking - b.ranking)
                   .map((item, index) => (
                     <tr key={index}>
@@ -75,7 +75,7 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
             <table className="table">
               <thead className="bg-black text-white">
                 <tr>
-                  <th className="w-36 min-w-36 text-blue-600 text-left">NFT</th>
+                  <th className="w-24  text-blue-600 text-left">NFT</th>
                   <th className="w-20 min-w-20 text-orange-600 text-left">
                     ETH
                   </th>
@@ -85,20 +85,33 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
                   <th className="w-20 min-w-20 text-orange-600 text-left">
                     % change
                   </th>
-                  <th className="min-w-28 text-purple-600 text-left">USD</th>
-                  <th className="min-w-20 text-orange-600 text-left">ETH</th>
-                  <th className="min-w-28 text-purple-600 text-left">USD</th>
+                  <th className="w-20 min-w-20 text-orange-600 text-left">
+                    ETH
+                  </th>
+                  <th className="w-20 min-w-20 text-purple-600 text-left">
+                    USD
+                  </th>
+                  <th className="w-20 min-w-20 text-orange-600 text-left">
+                    % change
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {nftObj
-                  .filter((item) => item.ranking <= 100)
+                  .filter((item) => item.ranking <= 420)
                   .sort((a, b) => a.ranking - b.ranking)
                   .map((item, index) => (
                     <tr key={index}>
-                      <td className="w-36 min-w-36 truncate">
+                      <td
+                        className="w-24"
+                        style={{
+                          maxWidth: "10rem",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
                         <i className="las la-braille"></i>
-                        <span className="">
+                        <span>
                           <a
                             className="hover:bg-black hover:text-white"
                             href={`https://nftpricefloor.com/${item.slug}`}
@@ -113,7 +126,9 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
                       </td>
                       <td className="w-20 min-w-20 bg-gray-100">
                         <i className="lab la-ethereum"></i>
-                        {item.stats.floorInfo.currentFloorEth}
+                        {Number(item.stats.floorInfo.currentFloorEth).toFixed(
+                          1
+                        )}
                       </td>
                       <td className="w-20 min-w-20 bg-gray-200">
                         <i className="las la-dollar-sign"></i>
@@ -126,21 +141,13 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
                         )}
                       </td>
                       <td className="w-20 min-w-20 bg-gray-100">% change</td>
-                      <td className="min-w-28 bg-gray-200">
-                        <i className="las la-dollar-sign"></i>
-                        {item.stats.floorInfo.currentFloorUsd.toLocaleString(
-                          undefined,
-                          {
-                            minimumFractionDigits: 0,
-                            maximumFractionDigits: 0,
-                          }
-                        )}
-                      </td>
-                      <td className="min-w-20 bg-gray-100">
+                      <td className="w-20 min-w-20 bg-gray-100">
                         <i className="lab la-ethereum"></i>
-                        {item.stats.floorInfo.currentFloorEth}
+                        {Number(item.stats.floorInfo.currentFloorEth).toFixed(
+                          1
+                        )}
                       </td>
-                      <td className="min-w-28 bg-gray-200">
+                      <td className="w-20 min-w-20 bg-gray-200">
                         <i className="las la-dollar-sign"></i>
                         {item.stats.floorInfo.currentFloorUsd.toLocaleString(
                           undefined,
@@ -150,6 +157,7 @@ export default function NftStuff({ nftObj, favs, setFavs }) {
                           }
                         )}
                       </td>
+                      <td className="w-20 min-w-20 bg-gray-100">% change</td>
                     </tr>
                   ))}
               </tbody>
