@@ -7,7 +7,7 @@ export default function SearchSection({
   setTimeRange,
 }) {
   return (
-    <div className="flex justify-between" id="searchsection">
+    <div className="flex justify-between " id="searchsection">
       <div className="border-2 border-black bg-black text-white">
         <i className="las la-search"></i>
         <input className="bg-white" type="text" />

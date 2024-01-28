@@ -16,13 +16,14 @@ export default function AppLayout({
       <Header />
 
       {/* Search Section */}
-      <SearchSection
-        currency={currency}
-        setCurrency={setCurrency}
-        timeRange={timeRange}
-        setTimeRange={setTimeRange}
-      />
-
+      <div className="overflow-x-auto h-40">
+        <SearchSection
+          currency={currency}
+          setCurrency={setCurrency}
+          timeRange={timeRange}
+          setTimeRange={setTimeRange}
+        />
+      </div>
       {/* Outlet (Scrollable Content) */}
       <div className="flex-grow overflow-y-auto">
         <Outlet />
