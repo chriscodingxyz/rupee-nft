@@ -11,19 +11,19 @@ export default function AppLayout({
   setTimeRange,
 }) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col" id="applayout">
       {/* Header */}
       <Header />
 
       {/* Search Section */}
-      <div className="">
-        <SearchSection
-          currency={currency}
-          setCurrency={setCurrency}
-          timeRange={timeRange}
-          setTimeRange={setTimeRange}
-        />
-      </div>
+
+      <SearchSection
+        currency={currency}
+        setCurrency={setCurrency}
+        timeRange={timeRange}
+        setTimeRange={setTimeRange}
+      />
+
       {/* Outlet (Scrollable Content) */}
       <div className="flex-grow overflow-y-auto">
         <Outlet />

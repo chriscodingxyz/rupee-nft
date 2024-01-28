@@ -58,3 +58,7 @@ th {
   border-left: 3px solid white;
   border-right: 3px solid white;
 } */
+
+#applayout {
+  height: 100dvh;
+}
