@@ -53,9 +53,9 @@ export default function NftStuff({
   return (
     <div id="nftstufftop" className="overflow-x-auto">
       <div
-        className="fixed bottom-4 right-4 bg-blue-500   rounded-full px-3 py-2 cursor-pointer shadow-md transition duration-200 hover:bg-blue-600"
+        className="animated-fade fixed bottom-4 right-4 bg-yellow-400 text-black  rounded-full px-2 py-1 cursor-pointer shadow-md transition duration-200 hover:bg-orange-400 hover:pb-4"
         onClick={scrollToTop}
-        title="Scroll up ^"
+        title="Scroll Up ^"
         style={{ zIndex: "10000" }}
       >
         <i class="las la-arrow-circle-up"></i>

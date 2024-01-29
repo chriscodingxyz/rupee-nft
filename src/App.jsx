@@ -55,7 +55,7 @@ function App() {
           >
             <Route
               index
-              path=""
+              path="/collections"
               element={
                 <NftStuff
                   favs={favs}
@@ -69,7 +69,7 @@ function App() {
                 />
               }
             />
-            <Route index path="about" element={<About />} />
+            <Route index path="/about" element={<About />} />
           </Route>
           {
             //anything under here is outside of the applayout
