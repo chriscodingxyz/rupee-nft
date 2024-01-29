@@ -3,9 +3,14 @@ import React from "react";
 export default function Header({ setDark }) {
   return (
     <div className="bg-black flex justify-between items-center">
-      <h1 className="text-3xl font-bold text-white mx-auto">
-        <a href="">🍒 CHERRY NFT 👾</a>
-      </h1>
+      <div>
+        <i style={{ fontSize: "2rem" }} class="text-white las la-bars ml-2"></i>
+      </div>
+      <div>
+        <h1 className="text-3xl font-bold text-white mx-auto">
+          <a href="">🍒CHERRY NFT👾</a>
+        </h1>
+      </div>
 
       <div className="">
         <i
