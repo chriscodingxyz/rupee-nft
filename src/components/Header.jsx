@@ -12,21 +12,25 @@ export default function Header({ setDark }) {
       <div>
         <i
           style={{ fontSize: "2rem" }}
-          className="text-white las la-bars ml-2 cursor-pointer"
+          className="animated-fade text-white las la-bars ml-2 cursor-pointer hover:rotate-180"
           onClick={toggleNavigation}
         ></i>
         {showNavigation && (
-          <div className="navigation-overlay text-white absolute bg-black w-1/2 h-1/2">
+          <div className="navigation-overlay text-white absolute bg-black w-1/2 h-1/2 p-2 flex justify-center items-center text-center">
             {/* Navigation links go here */}
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
+            {/* <div>NAVIGATION</div> */}
+
+            <ul className="">
+              <li>collections</li>
+              <li>about</li>
+              <li>contact</li>
               {/* Add more navigation links as needed */}
             </ul>
+            <i
+              onClick={toggleNavigation}
+              class="animated-fade absolute text-white las la-times right-0 bottom-0 cursor-pointer hover:rotate-90"
+              style={{ fontSize: "2rem" }}
+            ></i>
           </div>
         )}
       </div>
