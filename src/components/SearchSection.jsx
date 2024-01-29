@@ -17,7 +17,7 @@ export default function SearchSection({
       <div className="border-2 border-black text-white flex items-center">
         <i className="las la-search ml-3"></i>
         <input
-          className="bg-black border-2 rounded border-gray-300 ml-3 w-full"
+          className="animated-fade bg-black border-2 rounded border-gray-300 ml-3 w-full"
           placeholder="...search"
           type="text"
           style={{ width: "100%" }}
