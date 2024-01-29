@@ -55,7 +55,7 @@ function App() {
           >
             <Route
               index
-              path="/collections"
+              path=""
               element={
                 <NftStuff
                   favs={favs}
