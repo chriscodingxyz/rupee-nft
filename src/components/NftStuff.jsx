@@ -260,7 +260,7 @@ export default function NftStuff({
           </div>
         </div>
       ) : (
-        <div>There is no object</div>
+        <div>Fetching...</div>
       )}
     </div>
   );
