@@ -103,11 +103,11 @@ export default function NftStuff({
               </tbody>
             </table>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto flex-grow">
             <table className="table">
               <thead className="bg-black text-white">
                 <tr>
-                  <th className="w-24 text-left">NFT</th>
+                  <th className="w-full text-left">NFT</th>
                   <th className="w-20 min-w-20 text-white text-right">
                     {" "}
                     floor
@@ -140,9 +140,9 @@ export default function NftStuff({
                   .map((item, index) => (
                     <tr key={index}>
                       <td
-                        className="w-24"
+                        className="w-full truncate whitespace-nowrap overflow-hidden"
                         style={{
-                          maxWidth: "10rem",
+                          maxWidth: "10rem", // Adjust the max width as needed
                           overflow: "hidden",
                           textOverflow: "ellipsis",
                         }}
