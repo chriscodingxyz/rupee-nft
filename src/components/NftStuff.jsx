@@ -15,6 +15,11 @@ const abbreviateNumber = (value) => {
   return scaledValue.toFixed(1) + suffix;
 };
 
+function scrollToTop() {
+  const nftstufftop = document.getElementById("nftstufftop");
+  nftstufftop.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function NftStuff({
   nftObj,
   favs,
@@ -47,6 +52,14 @@ export default function NftStuff({
 
   return (
     <div id="nftstufftop" className="overflow-x-auto">
+      <div
+        className="fixed bottom-4 right-4 bg-blue-500 text-white rounded-full px-3 py-2 cursor-pointer shadow-md transition duration-200 hover:bg-blue-600"
+        onClick={scrollToTop}
+        title="Scroll up ^"
+        style={{ zIndex: "10000" }}
+      >
+        <i class="las la-arrow-circle-up"></i>
+      </div>
       {filteredNftObj ? (
         <div className="flex flex-grow">
           <div className="flex-none">
