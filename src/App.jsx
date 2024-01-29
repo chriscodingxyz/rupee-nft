@@ -18,7 +18,7 @@ function App() {
   const [timeRange, setTimeRange] = useState("24h");
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
 
   async function fetchData() {
     try {

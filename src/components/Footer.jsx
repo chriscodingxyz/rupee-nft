@@ -20,7 +20,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <div className="bg-black text-white">
+    <footer className="bg-black text-white">
       <marquee behavior="scroll" direction="left" scrollamount="5">
         {Object.entries(prices).map(([crypto, { usd }]) => (
           <span key={crypto} style={{ display: "inline-block" }}>
@@ -34,10 +34,10 @@ export default function Footer() {
                 alt=""
               />
             )}
-            {`:$${usd}`}
+            {` = $${usd.toFixed(0)}`}
           </span>
         ))}
       </marquee>
-    </div>
+    </footer>
   );
 }

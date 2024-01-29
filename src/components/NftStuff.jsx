@@ -53,7 +53,7 @@ export default function NftStuff({
   return (
     <div id="nftstufftop" className="overflow-x-auto">
       <div
-        className="fixed bottom-4 right-4 bg-blue-500 text-white rounded-full px-3 py-2 cursor-pointer shadow-md transition duration-200 hover:bg-blue-600"
+        className="fixed bottom-4 right-4 bg-blue-500   rounded-full px-3 py-2 cursor-pointer shadow-md transition duration-200 hover:bg-blue-600"
         onClick={scrollToTop}
         title="Scroll up ^"
         style={{ zIndex: "10000" }}
@@ -63,8 +63,8 @@ export default function NftStuff({
       {filteredNftObj ? (
         <div className="flex flex-grow">
           <div className="flex-none">
-            <table className="table-auto bg-black text-white">
-              <thead className="bg-black text-white">
+            <table className="table-auto bg-black  ">
+              <thead className="bg-black  ">
                 <tr>
                   <th
                     onClick={() => setOnlyFavs((curr) => !curr)}
@@ -96,7 +96,7 @@ export default function NftStuff({
                           >
                             {favs.has(item.slug) ? "⭐️" : "☆"}
                           </button>
-                          <span>
+                          <span style={{ color: "rgba(255, 255, 255, 0.8)" }}>
                             {item.ranking < 10
                               ? `0${item.ranking}`
                               : item.ranking}
@@ -121,10 +121,10 @@ export default function NftStuff({
           </div>
           <div className="overflow-x-auto flex-grow">
             <table className="table">
-              <thead className="bg-black text-white">
+              <thead className="bg-black  ">
                 <tr>
                   <th className="w-full text-left">NFT</th>
-                  <th className="w-20 min-w-20 text-white text-right">
+                  <th className="w-20 min-w-20   text-right">
                     {" "}
                     floor
                     {currency === "Eth" ? (
@@ -133,20 +133,18 @@ export default function NftStuff({
                       <i className="las la-dollar-sign"></i>
                     )}
                   </th>
-                  {/* <th className="w-20 min-w-20 text-white text-left">USD</th> */}
-                  <th className="w-20 min-w-20 text-white text-right">Mcap</th>
-                  <th className="w-20 min-w-20 text-white text-right">
-                    %
+                  {/* <th className="w-20 min-w-20   text-left">USD</th> */}
+                  <th className="w-20 min-w-20   text-right">Mcap</th>
+                  <th className="w-20 min-w-20   text-right">
+                    change
                     {/* <span style={{ fontSize: "8px" }}>{timeRange}</span> */}
                   </th>
 
-                  <th className="w-20 min-w-20 text-white text-right">
+                  <th className="w-20 min-w-20   text-right">
                     sold
                     {/* <span style={{ fontSize: "8px" }}>{timeRange}</span> */}
                   </th>
-                  <th className="w-20 min-w-20 text-white text-right">
-                    volume
-                  </th>
+                  <th className="w-20 min-w-20   text-right">volume</th>
                 </tr>
               </thead>
               <tbody>
@@ -166,7 +164,7 @@ export default function NftStuff({
                         <i className="las la-braille"></i>
                         <span>
                           <a
-                            className="hover:bg-black hover:text-white"
+                            className="hover:bg-black hover: "
                             href={`https://nftpricefloor.com/${item.slug}`}
                             target="_blank"
                             title={item.name}

@@ -7,6 +7,16 @@
   src: url("/fonts/ProtoMono-Regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Proto Mono Shadow";
+  src: url("/fonts/ProtoMono-RegularShadow.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Silkscreen";
+  src: url("/fonts/Silkscreen-Regular.woff2") format("woff2");
+}
+
 :root {
   font-family: Proto Mono, Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
@@ -22,19 +32,23 @@
 
 .dark-theme {
   background-color: black;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .dark-theme button {
   color: black;
+}
 
-  /* background-color: gray; */
+.dark-theme td {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  border-right: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 html,
 body {
   overflow: hidden;
   scroll-behavior: smooth;
+  opacity: 0.95;
   /* background-color: black;
   color: white; */
 }
@@ -51,12 +65,16 @@ td {
 
 th {
   white-space: nowrap;
+  font-family: Silkscreen;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
 
   /* border-left: 1px solid white; */
 }
 
 button {
   background-color: white;
+  /* opacity: 0.9; */
 }
 
 .glow {
@@ -103,4 +121,8 @@ input:hover {
 
 img:hover {
   filter: grayscale();
+}
+
+footer {
+  font-family: Silkscreen;
 }
