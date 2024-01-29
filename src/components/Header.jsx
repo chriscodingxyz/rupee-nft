@@ -42,6 +42,7 @@ export default function Header({ setDark }) {
 
       <div className="">
         <i
+          style={{ fontSize: "1.5rem" }}
           onClick={() => setDark((curr) => !curr)}
           className="animated-fade glow las la-adjust mr-3 text-white cursor-pointer hover:rotate-180 rounded-full opacity-75 hover:opacity-100"
         ></i>
