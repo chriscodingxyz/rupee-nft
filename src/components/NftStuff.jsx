@@ -83,6 +83,7 @@ export default function NftStuff({
                     <tr key={index}>
                       <td
                         className="w-10 min-w-10 text-center p-0 cursor-pointer "
+                        style={{ borderColor: "transparent" }}
                         onClick={() =>
                           favs.has(item.slug)
                             ? removeFav(item.slug, item.name)
@@ -103,7 +104,10 @@ export default function NftStuff({
                           </span>
                         </div>
                       </td>
-                      <td className="w-8 min-w-8 text-center p-0 ">
+                      <td
+                        className="w-8 min-w-8 text-center p-0"
+                        style={{ borderColor: "transparent" }}
+                      >
                         <img
                           className="w-7 h-7 border-white rounded border p-0"
                           src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
