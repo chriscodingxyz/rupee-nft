@@ -15,10 +15,28 @@
   font-size: 16px;
 }
 
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+.dark-theme button {
+  color: black;
+
+  /* background-color: gray; */
+}
+
 html,
 body {
   overflow: hidden;
   scroll-behavior: smooth;
+  /* background-color: black;
+  color: white; */
 }
 
 td {
@@ -35,6 +53,10 @@ th {
   white-space: nowrap;
 
   /* border-left: 1px solid white; */
+}
+
+button {
+  background-color: white;
 }
 
 .glow {

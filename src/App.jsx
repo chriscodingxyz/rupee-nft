@@ -18,6 +18,7 @@ function App() {
   const [timeRange, setTimeRange] = useState("24h");
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const [dark, setDark] = useState(true);
 
   async function fetchData() {
     try {
@@ -35,7 +36,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className={dark ? "dark-theme" : "light-theme"}>
       <Toaster richColors />
       <BrowserRouter>
         <Routes>
@@ -48,6 +49,7 @@ function App() {
                 setTimeRange={setTimeRange}
                 setSearchInput={setSearchInput}
                 searchInput={searchInput}
+                setDark={setDark}
               />
             }
           >
@@ -75,7 +77,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

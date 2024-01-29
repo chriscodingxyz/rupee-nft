@@ -11,11 +11,12 @@ export default function AppLayout({
   setTimeRange,
   setSearchInput,
   searchInput,
+  setDark,
 }) {
   return (
     <div className="flex flex-col" id="applayout">
       {/* Header */}
-      <Header />
+      <Header setDark={setDark} />
 
       {/* Search Section */}
 

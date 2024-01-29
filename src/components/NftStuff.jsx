@@ -90,7 +90,10 @@ export default function NftStuff({
                         }
                       >
                         <div className="flex">
-                          <button className="">
+                          <button
+                            className="bg-black"
+                            style={{ color: "white" }}
+                          >
                             {favs.has(item.slug) ? "⭐️" : "☆"}
                           </button>
                           <span>
@@ -175,7 +178,7 @@ export default function NftStuff({
                           ---{item.stats.totalSupply}
                         </div>
                       </td>
-                      <td className="w-20 min-w-20 bg-white text-right">
+                      <td className="w-20 min-w-20 text-right">
                         {currency === "Eth" ? (
                           <>
                             {Number(
@@ -197,7 +200,7 @@ export default function NftStuff({
                         )}
                       </td>
 
-                      <td className="w-20 min-w-20 bg-white text-right">
+                      <td className="w-20 min-w-20  text-right">
                         {currency === "Eth" ? (
                           <>
                             {Number(item.stats.floorCapEth).toLocaleString()}
@@ -214,7 +217,7 @@ export default function NftStuff({
                       </td>
 
                       <td
-                        className={`w-20 min-w-20 bg-white text-right ${
+                        className={`w-20 min-w-20  text-right ${
                           Number(
                             item.stats[`floorTemporality${currency}`][
                               "diff" + timeRange
@@ -238,12 +241,12 @@ export default function NftStuff({
                         ).toFixed(2)}
                         %
                       </td>
-                      <td className="w-20 min-w-20 bg-white text-right">
+                      <td className="w-20 min-w-20 text-right">
                         {item.stats.count[`val${timeRange}`]
                           ? item.stats.count[`val${timeRange}`]
                           : "-"}
                       </td>
-                      <td className="w-20 min-w-20 bg-white text-right">
+                      <td className="w-20 min-w-20  text-right">
                         {currency === "Eth" ? (
                           <>
                             {Number(

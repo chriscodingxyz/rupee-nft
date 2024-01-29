@@ -25,54 +25,42 @@ export default function SearchSection({
         />
       </div>
 
-      <div className="border-2 border-black border-2 border-black bg-white p-1">
+      <div className=" border-white border-2 border-black">
         <button
-          className={`${
-            timeRange === "24h" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${timeRange === "24h" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setTimeRange("24h")}
         >
           24h
         </button>
         <button
-          className={`${
-            timeRange === "7d" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${timeRange === "7d" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setTimeRange("7d")}
         >
           7D
         </button>
         <button
-          className={`${
-            timeRange === "30d" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${timeRange === "30d" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setTimeRange("30d")}
         >
           30D
         </button>
         <button
-          className={`${
-            timeRange === "90d" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${timeRange === "90d" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setTimeRange("90d")}
         >
           90D
         </button>
       </div>
 
-      <div className="border-2 border-black bg-white p-1">
+      <div className=" border-white border-2 border-black">
         <button
-          className={`${
-            currency === "Eth" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${currency === "Eth" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setCurrency("Eth")}
         >
           <i className="lab la-ethereum"></i>
         </button>
         <button
-          className={`${
-            currency === "Usd" ? "bg-red-500 text-white" : "bg-white"
-          }`}
+          className={`${currency === "Usd" ? "bg-red-500 text-white" : ""}`}
           onClick={() => setCurrency("Usd")}
         >
           <i className="las la-dollar-sign"></i>
