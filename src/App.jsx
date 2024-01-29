@@ -13,9 +13,11 @@ function App() {
   const [nftObj, setNftObj] = useState(null);
   const [favs, setFavs] = useState(new Set());
   //eth , usd
-  const [currency, setCurrency] = useState("eth");
+  const [currency, setCurrency] = useState("Eth");
   //diff24, diff7d, diff14d, diff30d, diff90d
-  const [timeRange, setTimeRange] = useState("24hr");
+  const [timeRange, setTimeRange] = useState("24h");
+  const [onlyFavs, setOnlyFavs] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
 
   async function fetchData() {
     try {
@@ -44,6 +46,8 @@ function App() {
                 setCurrency={setCurrency}
                 timeRange={timeRange}
                 setTimeRange={setTimeRange}
+                setSearchInput={setSearchInput}
+                searchInput={searchInput}
               />
             }
           >
@@ -56,6 +60,10 @@ function App() {
                   setFavs={setFavs}
                   nftObj={nftObj}
                   setNftObj={setNftObj}
+                  currency={currency}
+                  timeRange={timeRange}
+                  onlyFavs={onlyFavs}
+                  setOnlyFavs={setOnlyFavs}
                 />
               }
             />

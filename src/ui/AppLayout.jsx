@@ -9,6 +9,8 @@ export default function AppLayout({
   setCurrency,
   timeRange,
   setTimeRange,
+  setSearchInput,
+  searchInput,
 }) {
   return (
     <div className="flex flex-col" id="applayout">
@@ -22,6 +24,8 @@ export default function AppLayout({
         setCurrency={setCurrency}
         timeRange={timeRange}
         setTimeRange={setTimeRange}
+        setSearchInput={setSearchInput}
+        searchInput={searchInput}
       />
 
       {/* Outlet (Scrollable Content) */}

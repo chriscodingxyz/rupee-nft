@@ -17,18 +17,21 @@
 
 html,
 body {
-  overflow-y: hidden;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 td {
   font-size: 11px;
   height: 2rem;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
   white-space: nowrap;
 }
 
 th {
   white-space: nowrap;
+  /* border-left: 1px solid white; */
 }
 
 .glow {
@@ -45,7 +48,8 @@ th {
 }
 
 #searchsection {
-  background-color: white;
+  background-color: black;
+  padding-top: 10px;
   /* padding: 5px 0px; */
   white-space: nowrap;
 }
@@ -61,4 +65,17 @@ th {
 
 #applayout {
   height: 100dvh;
+}
+
+#searchsection button:hover {
+  /* outline: 2px solid black; */
+  filter: invert(100%);
+}
+
+input:hover {
+  filter: invert(100%);
+}
+
+img:hover {
+  filter: grayscale();
 }

@@ -5,84 +5,95 @@ export default function SearchSection({
   setCurrency,
   timeRange,
   setTimeRange,
+  searchInput,
+  setSearchInput,
 }) {
+  const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
-    <div className="flex justify-between " id="searchsection">
-      <div className="border-2 border-black bg-black text-white">
-        <i className="las la-search"></i>
-        <input className="bg-white" type="text" />
+    <div className="flex justify-between" id="searchsection">
+      <div className="border-2 border-black text-white">
+        {<i className="las la-search"></i>}
+        <input
+          className="bg-black border-2 rounded border-gray-300 ml-3"
+          placeholder="...search"
+          type="text"
+          onChange={handleInputChange} // Attach onChange event to handle input change
+        />
       </div>
 
       <div className="">
-        <div className="border-2 border-black">
+        <div className="border-2 border-black border-2 border-black bg-white p-1">
           <button
             className={`${
-              currency === "eth" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "24h" ? "bg-red-500 text-white" : "bg-white"
             }`}
-            onClick={() => setCurrency("eth")}
+            onClick={() => setTimeRange("24h")}
           >
-            <i className="lab la-ethereum"></i>eth
+            24h
           </button>
-          <button
+          {/* <button
             className={`${
-              currency === "usd" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "3d" ? "bg-red-500 text-white" : "bg-white"
             }`}
-            onClick={() => setCurrency("usd")}
-          >
-            <i className="las la-dollar-sign"></i>usd
-          </button>
-        </div>
-      </div>
-
-      <div className=" flex ">
-        <div className="border-2 border-black">
-          <button
-            className={`${
-              timeRange === "24hr" ? "bg-blue-500 text-white" : "bg-gray-300"
-            }`}
-            onClick={() => setTimeRange("24hr")}
-          >
-            24hr
-          </button>
-          <button
-            className={`${
-              timeRange === "3D" ? "bg-blue-500 text-white" : "bg-gray-300"
-            }`}
-            onClick={() => setTimeRange("3D")}
+            onClick={() => setTimeRange("3d")}
           >
             3D
-          </button>
+          </button> */}
           <button
             className={`${
-              timeRange === "7D" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "7d" ? "bg-red-500 text-white" : "bg-white"
             }`}
-            onClick={() => setTimeRange("7D")}
+            onClick={() => setTimeRange("7d")}
           >
             7D
           </button>
-          <button
+          {/* <button
             className={`${
-              timeRange === "14D" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "14D" ? "bg-red-500 text-white" : "bg-white"
             }`}
             onClick={() => setTimeRange("14D")}
           >
             14D
-          </button>
+          </button> */}
           <button
             className={`${
-              timeRange === "30D" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "30d" ? "bg-red-500 text-white" : "bg-white"
             }`}
-            onClick={() => setTimeRange("30D")}
+            onClick={() => setTimeRange("30d")}
           >
             30D
           </button>
           <button
             className={`${
-              timeRange === "90D" ? "bg-blue-500 text-white" : "bg-gray-300"
+              timeRange === "90d" ? "bg-red-500 text-white" : "bg-white"
             }`}
-            onClick={() => setTimeRange("90D")}
+            onClick={() => setTimeRange("90d")}
           >
             90D
+          </button>
+        </div>
+      </div>
+
+      <div className=" flex ">
+        <div className="border-2 border-black bg-white p-1">
+          <button
+            className={`${
+              currency === "Eth" ? "bg-red-500 text-white" : "bg-white"
+            }`}
+            onClick={() => setCurrency("Eth")}
+          >
+            <i className="lab la-ethereum"></i>
+          </button>
+          <button
+            className={`${
+              currency === "Usd" ? "bg-red-500 text-white" : "bg-white"
+            }`}
+            onClick={() => setCurrency("Usd")}
+          >
+            <i className="las la-dollar-sign"></i>
           </button>
         </div>
       </div>
