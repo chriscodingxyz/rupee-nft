@@ -22,7 +22,6 @@ export default function Footer() {
   return (
     <div className="bg-black text-white">
       <marquee behavior="scroll" direction="left" scrollamount="5">
-        {/* Display the fetched prices */}
         {Object.entries(prices).map(([crypto, { usd }]) => (
           <span key={crypto} style={{ display: "inline-block" }}>
             {crypto === "bitcoin" && <i class="fa fa-bitcoin"></i>}
@@ -33,7 +32,7 @@ export default function Footer() {
                 style={{ height: "15px", display: "inline-block" }}
                 src="/icons8-solana-64.png"
                 alt=""
-              /> // Solana icon
+              />
             )}
             {`:$${usd}`}
           </span>
