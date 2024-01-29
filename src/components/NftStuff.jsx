@@ -153,7 +153,7 @@ export default function NftStuff({
                   .map((item, index) => (
                     <tr key={index}>
                       <td
-                        className="w-full truncate whitespace-nowrap overflow-hidden"
+                        className="w-full truncate whitespace-nowrap overflow-hidden px-0"
                         style={{
                           maxWidth: "10rem", // Adjust the max width as needed
                           overflow: "hidden",
