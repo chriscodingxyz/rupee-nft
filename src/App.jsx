@@ -21,12 +21,16 @@ function App() {
   const [dark, setDark] = useState(false);
   const nftAPI = import.meta.env.NFTAPI;
 
-  const apiLink = `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}`;
+  // const apiLink = `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}`;
   const localLink = "nftData.json";
 
   async function fetchData() {
     try {
-      const response = await axios.get(nftAPI ? apiLink : localLink);
+      const response = await axios.get(
+        `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}` ||
+          localLink
+      );
+      // console.log(apiLink, localLink);
       const { data } = response;
       setNftObj(data);
       // console.log("just data", typeof data, data.length, data);
