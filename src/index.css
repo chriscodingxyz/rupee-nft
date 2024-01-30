@@ -45,7 +45,7 @@
 }
 
 .animated-fade {
-  transition: all 0.2s ease; /* Adjust the duration and timing function as needed */
+  transition: all 0.2s ease-in-out; /* Adjust the duration and timing function as needed */
 }
 
 html,

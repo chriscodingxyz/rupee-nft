@@ -37,25 +37,28 @@ export default function Header({ setDark }) {
                 contact
                 <div>
                   <a href="https://github.com/cherrydub" target="_blank">
-                    <i class="lab la-github-square animated-fade hover:rotate-90"></i>
+                    <i class="lab la-github-square animated-fade hover:rotate-90 text-xl"></i>
                   </a>
                   <a
                     href="mailto:chriscoding@icloud.com"
                     title="chriscoding@icloud.com"
                   >
-                    <i class="las la-envelope-square animated-fade hover:rotate-90"></i>
+                    <i class="las la-envelope-square animated-fade hover:rotate-90 text-xl"></i>
                   </a>
                   <a
                     href="https://www.linkedin.com/in/wisniewskichris/"
                     target="_blank"
                     title="LinkedIn"
                   >
-                    <i class="lab la-linkedin animated-fade hover:rotate-90"></i>
+                    <i class="lab la-linkedin animated-fade hover:rotate-90 text-xl"></i>
                   </a>
                 </div>
               </li>
               {/* Add more navigation links as needed */}
             </ul>
+            <div className="absolute bottom-0 text-xs">
+              *navigation and search still under construction*
+            </div>
             <i
               onClick={toggleNavigation}
               class="animated-fade absolute text-white las la-times right-0 bottom-0 cursor-pointer hover:rotate-90"
