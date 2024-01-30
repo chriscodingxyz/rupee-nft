@@ -83,7 +83,7 @@ export default function NftStuff({
                   .map((item, index) => (
                     <tr key={index}>
                       <td
-                        className="w-8 min-w-8 text-center pl-3 "
+                        className="w-8 min-w-8 text-center p-0 pl-3 "
                         style={{ borderColor: "transparent" }}
                         // onClick={() =>
                         //   favs.has(item.slug)
