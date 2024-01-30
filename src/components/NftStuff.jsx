@@ -282,6 +282,7 @@ export default function NftStuff({
               </tbody>
             </table>
           </div>
+          {console.clear()}
         </div>
       ) : (
         <div>Fetching...</div>
