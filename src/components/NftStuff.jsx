@@ -67,13 +67,13 @@ export default function NftStuff({
             <table className="table-auto bg-black  ">
               <thead className="bg-black  ">
                 <tr>
+                  <th className="w-6 min-w-6 ">#</th>
                   <th
                     onClick={() => setOnlyFavs((curr) => !curr)}
-                    className="w-10 min-w-10 cursor-pointer"
+                    className="w-12 min-w-12 cursor-pointer"
                   >
                     {onlyFavs ? "⭐️" : "☆"}
                   </th>
-                  <th className="w-8 min-w-8"></th>
                 </tr>
               </thead>
               <tbody>
@@ -83,41 +83,51 @@ export default function NftStuff({
                   .map((item, index) => (
                     <tr key={index}>
                       <td
-                        className="w-10 min-w-10 text-center p-0 cursor-pointer "
+                        className="w-8 min-w-8 text-center pl-3 "
                         style={{ borderColor: "transparent" }}
-                        onClick={() =>
-                          favs.has(item.slug)
-                            ? removeFav(item.slug, item.name)
-                            : addFav(item.slug, item.name)
-                        }
+                        // onClick={() =>
+                        //   favs.has(item.slug)
+                        //     ? removeFav(item.slug, item.name)
+                        //     : addFav(item.slug, item.name)
+                        // }
                       >
                         <div className="flex">
-                          <button
-                            className="bg-black"
-                            style={{ color: "white" }}
-                          >
-                            {favs.has(item.slug) ? "⭐️" : "☆"}
-                          </button>
                           <span style={{ color: "rgba(255, 255, 255, 0.8)" }}>
                             {item.ranking < 10
+                              ? `00${item.ranking}`
+                              : item.ranking < 100
                               ? `0${item.ranking}`
                               : item.ranking}
                           </span>
                         </div>
                       </td>
                       <td
-                        className="w-8 min-w-8 text-center p-0"
+                        className="w-12 min-w-12 text-center p-0"
                         style={{ borderColor: "transparent" }}
                       >
-                        <img
-                          className="w-7 h-7 border-white rounded border p-0"
-                          src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
-                          onError={(e) => {
-                            e.target.src =
-                              "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/200px-SMPTE_Color_Bars.svg.png";
-                          }}
-                          alt=""
-                        />
+                        <div
+                          className="flex cursor-pointer hover:text-white"
+                          onClick={() =>
+                            favs.has(item.slug)
+                              ? removeFav(item.slug, item.name)
+                              : addFav(item.slug, item.name)
+                          }
+                        >
+                          <button className={`bg-black  `}>
+                            {favs.has(item.slug) ? "⭐️" : "☆"}
+                          </button>
+                          <img
+                            className={`w-7 h-7 border-white rounded border p-0 opacity-100 ${
+                              favs.has(item.slug) ? "glow-gold" : ""
+                            }`}
+                            src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
+                            onError={(e) => {
+                              e.target.src =
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/200px-SMPTE_Color_Bars.svg.png";
+                            }}
+                            alt=""
+                          />
+                        </div>
                       </td>
                     </tr>
                   ))}

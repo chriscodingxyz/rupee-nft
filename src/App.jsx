@@ -29,7 +29,7 @@ function App() {
 
       setTimeout(() => {
         console.clear();
-      }, 10000);
+      }, 5000);
     } catch (error) {
       console.error("Catch error:", error);
     }
