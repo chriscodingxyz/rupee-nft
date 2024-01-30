@@ -83,7 +83,7 @@ export default function NftStuff({
                   .map((item, index) => (
                     <tr key={index}>
                       <td
-                        className="w-8 min-w-8 text-center p-0 pl-3 "
+                        className="w-8 min-w-8 text-center pl-3 "
                         style={{ borderColor: "transparent" }}
                         // onClick={() =>
                         //   favs.has(item.slug)
@@ -106,15 +106,17 @@ export default function NftStuff({
                         style={{ borderColor: "transparent" }}
                       >
                         <div
-                          className="flex cursor-pointer hover:text-white"
+                          className={`flex cursor-pointer hover:text-white ${
+                            favs.has(item.slug) ? "text-white" : ""
+                          }`}
                           onClick={() =>
                             favs.has(item.slug)
                               ? removeFav(item.slug, item.name)
                               : addFav(item.slug, item.name)
                           }
                         >
-                          <button className={`bg-black  `}>
-                            {favs.has(item.slug) ? "⭐️" : "☆"}
+                          <button className={`bg-black`}>
+                            {favs.has(item.slug) ? "★" : "☆"}
                           </button>
                           <img
                             className={`w-7 h-7 border-white rounded border p-0 opacity-100 ${
