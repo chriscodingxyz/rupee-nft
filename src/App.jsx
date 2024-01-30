@@ -19,10 +19,14 @@ function App() {
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [dark, setDark] = useState(false);
+  const nftAPI = import.meta.env.NFTAPI;
+
+  const apiLink = `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}`;
+  const localLink = "nftData.json";
 
   async function fetchData() {
     try {
-      const response = await axios.get("nftData.json");
+      const response = await axios.get(nftAPI ? apiLink : localLink);
       const { data } = response;
       setNftObj(data);
       // console.log("just data", typeof data, data.length, data);
