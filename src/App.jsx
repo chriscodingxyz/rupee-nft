@@ -26,6 +26,10 @@ function App() {
       const response = await axios.get(nftAPI);
       const { data } = response;
       setNftObj(data);
+
+      setTimeout(() => {
+        console.clear();
+      }, 10000);
     } catch (error) {
       console.error("Catch error:", error);
     }
