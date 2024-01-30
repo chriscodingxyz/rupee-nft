@@ -19,7 +19,7 @@ function App() {
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [dark, setDark] = useState(false);
-  const nftAPI = import.meta.env.VITE_NFTAPI || "nftData.json";
+  const nftAPI = import.meta.env.VITE_NFTAPILINK || "nftData.json";
 
   async function fetchData() {
     try {
