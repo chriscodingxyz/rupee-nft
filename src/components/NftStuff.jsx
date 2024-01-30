@@ -29,6 +29,7 @@ export default function NftStuff({
   onlyFavs,
   setOnlyFavs,
   searchInput,
+  dark,
 }) {
   const addFav = (slug, name) => {
     setFavs((prevFavs) => new Set([...prevFavs, slug]));
@@ -156,7 +157,12 @@ export default function NftStuff({
                   .filter((item) => item.ranking <= 420)
                   .sort((a, b) => a.ranking - b.ranking)
                   .map((item, index) => (
-                    <tr key={index}>
+                    <tr
+                      key={index}
+                      className={
+                        dark ? "hover:bg-gray-950" : "hover:bg-gray-100"
+                      }
+                    >
                       <td
                         className="w-full truncate whitespace-nowrap overflow-hidden px-0"
                         style={{
@@ -168,7 +174,7 @@ export default function NftStuff({
                         <i className="las la-braille"></i>
                         <span>
                           <a
-                            className="hover:bg-black hover: "
+                            className="hover:underline"
                             href={`https://nftpricefloor.com/${item.slug}`}
                             target="_blank"
                             title={item.name}

@@ -66,6 +66,7 @@ function App() {
                   timeRange={timeRange}
                   onlyFavs={onlyFavs}
                   setOnlyFavs={setOnlyFavs}
+                  dark={dark}
                 />
               }
             />
