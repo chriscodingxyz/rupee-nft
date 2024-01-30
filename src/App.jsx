@@ -19,21 +19,13 @@ function App() {
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [dark, setDark] = useState(false);
-  const nftAPI = import.meta.env.NFTAPI;
-
-  // const apiLink = `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}`;
-  const localLink = "nftData.json";
+  const nftAPI = import.meta.env.VITE_NFTAPI || "nftData.json";
 
   async function fetchData() {
     try {
-      const response = await axios.get(
-        `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}` ||
-          localLink
-      );
-      // console.log(apiLink, localLink);
+      const response = await axios.get(nftAPI);
       const { data } = response;
       setNftObj(data);
-      // console.log("just data", typeof data, data.length, data);
     } catch (error) {
       console.error("Catch error:", error);
     }
