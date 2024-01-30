@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Toaster, toast } from "sonner";
+import { favs, nftObj, currency, timeRange, onlyFavs, dark } from "../App.jsx";
+import { effect } from "@preact/signals-react";
+// import { effect } from "@preact/signals-react";
 
 const abbreviateNumber = (value) => {
   const suffixes = ["", "k", "M", "B", "T"];
@@ -20,36 +23,28 @@ function scrollToTop() {
   nftstufftop.scrollIntoView({ behavior: "smooth" });
 }
 
-export default function NftStuff({
-  nftObj,
-  favs,
-  setFavs,
-  currency,
-  timeRange,
-  onlyFavs,
-  setOnlyFavs,
-  searchInput,
-  dark,
-}) {
+export default function NftStuff() {
   const addFav = (slug, name) => {
-    setFavs((prevFavs) => new Set([...prevFavs, slug]));
+    favs.value = new Set([...favs.value, slug]);
     toast(`Added ${name} to ⭐️`);
   };
 
   const removeFav = (slug, name) => {
-    const updatedFavs = new Set(favs);
+    const updatedFavs = new Set(favs.value);
     updatedFavs.delete(slug);
-    setFavs(updatedFavs);
+    favs.value = updatedFavs;
     toast(`Removed ${name} from ⭐️`);
   };
 
-  useEffect(() => {
-    console.log("the fav list", favs);
-  }, [favs]);
+  const filteredNftObj = onlyFavs.value
+    ? nftObj.value.filter((item) => favs.value.has(item.slug))
+    : nftObj.value;
 
-  const filteredNftObj = onlyFavs
-    ? nftObj.filter((item) => favs.has(item.slug))
-    : nftObj;
+  effect(() => {
+    console.log("!!!!", nftObj.value);
+  });
+
+  console.log("JAKLFJLEFJLSFJS", filteredNftObj);
 
   return (
     <div id="nftstufftop" className="overflow-x-auto">
@@ -68,10 +63,10 @@ export default function NftStuff({
               <thead className="bg-black  ">
                 <tr>
                   <th
-                    onClick={() => setOnlyFavs((curr) => !curr)}
+                    onClick={() => (onlyFavs.value = !onlyFavs.value)}
                     className="w-10 min-w-10 cursor-pointer"
                   >
-                    {onlyFavs ? "⭐️" : "☆"}
+                    {onlyFavs.value ? "⭐️" : "☆"}
                   </th>
                   <th className="w-8 min-w-8"></th>
                 </tr>
@@ -86,7 +81,7 @@ export default function NftStuff({
                         className="w-10 min-w-10 text-center p-0 cursor-pointer "
                         style={{ borderColor: "transparent" }}
                         onClick={() =>
-                          favs.has(item.slug)
+                          favs.value.has(item.slug)
                             ? removeFav(item.slug, item.name)
                             : addFav(item.slug, item.name)
                         }
@@ -96,7 +91,7 @@ export default function NftStuff({
                             className="bg-black"
                             style={{ color: "white" }}
                           >
-                            {favs.has(item.slug) ? "⭐️" : "☆"}
+                            {favs.value.has(item.slug) ? "⭐️" : "☆"}
                           </button>
                           <span style={{ color: "rgba(255, 255, 255, 0.8)" }}>
                             {item.ranking < 10
@@ -132,7 +127,7 @@ export default function NftStuff({
                   <th className="w-20 min-w-20   text-right">
                     {" "}
                     floor
-                    {currency === "Eth" ? (
+                    {currency.value === "Eth" ? (
                       <i className="lab la-ethereum"></i>
                     ) : (
                       <i className="las la-dollar-sign"></i>
@@ -160,7 +155,7 @@ export default function NftStuff({
                     <tr
                       key={index}
                       className={
-                        dark ? "hover:bg-gray-950" : "hover:bg-gray-100"
+                        dark.value ? "hover:bg-gray-950" : "hover:bg-gray-100"
                       }
                     >
                       <td
@@ -187,7 +182,7 @@ export default function NftStuff({
                         </div>
                       </td>
                       <td className="w-20 min-w-20 text-right">
-                        {currency === "Eth" ? (
+                        {currency.value === "Eth" ? (
                           <>
                             {Number(
                               item.stats.floorInfo.currentFloorEth
@@ -209,7 +204,7 @@ export default function NftStuff({
                       </td>
 
                       <td className="w-20 min-w-20  text-right">
-                        {currency === "Eth" ? (
+                        {currency.value === "Eth" ? (
                           <>
                             {Number(item.stats.floorCapEth).toLocaleString()}
                             <i className="lab la-ethereum"></i>
@@ -227,8 +222,8 @@ export default function NftStuff({
                       <td
                         className={`w-20 min-w-20  text-right ${
                           Number(
-                            item.stats[`floorTemporality${currency}`][
-                              "diff" + timeRange
+                            item.stats[`floorTemporality${currency.value}`][
+                              "diff" + timeRange.value
                             ]
                           ) > 0
                             ? "text-green-500"
@@ -236,30 +231,30 @@ export default function NftStuff({
                         }`}
                       >
                         {Number(
-                          item.stats[`floorTemporality${currency}`][
-                            "diff" + timeRange
+                          item.stats[`floorTemporality${currency.value}`][
+                            "diff" + timeRange.value
                           ]
                         ) > 0
                           ? "+"
                           : ""}
                         {Number(
-                          item.stats[`floorTemporality${currency}`][
-                            "diff" + timeRange
+                          item.stats[`floorTemporality${currency.value}`][
+                            "diff" + timeRange.value
                           ]
                         ).toFixed(2)}
                         %
                       </td>
                       <td className="w-20 min-w-20 text-right">
-                        {item.stats.count[`val${timeRange}`]
-                          ? item.stats.count[`val${timeRange}`]
+                        {item.stats.count[`val${timeRange.value}`]
+                          ? item.stats.count[`val${timeRange.value}`]
                           : "-"}
                       </td>
                       <td className="w-20 min-w-20  text-right">
-                        {currency === "Eth" ? (
+                        {currency.value === "Eth" ? (
                           <>
                             {Number(
                               item.stats.salesTemporalityEth.volume[
-                                `val${timeRange}`
+                                `val${timeRange.value}`
                               ]
                             ).toLocaleString()}
                             <i className="lab la-ethereum"></i>
@@ -269,7 +264,7 @@ export default function NftStuff({
                             {abbreviateNumber(
                               Number(
                                 item.stats.salesTemporalityUsd.volume[
-                                  `val${timeRange}`
+                                  `val${timeRange.value}`
                                 ]
                               ).toFixed(0)
                             )}

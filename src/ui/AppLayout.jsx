@@ -3,30 +3,43 @@ import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import SearchSection from "../components/SearchSection";
-
-export default function AppLayout({
+import {
+  favs,
+  nftObj,
   currency,
-  setCurrency,
   timeRange,
-  setTimeRange,
-  setSearchInput,
+  onlyFavs,
+  dark,
   searchInput,
-  setDark,
-}) {
+} from "../GlobalSignals";
+
+export default function AppLayout(
+  {
+    // currency,
+    // setCurrency,
+    // timeRange,
+    // setTimeRange,
+    // setSearchInput,
+    // searchInput,
+    // setDark,
+  }
+) {
   return (
     <div className="flex flex-col" id="applayout">
       {/* Header */}
-      <Header setDark={setDark} />
+      <Header
+      // setDark={setDark}
+      />
 
       {/* Search Section */}
 
       <SearchSection
-        currency={currency}
-        setCurrency={setCurrency}
-        timeRange={timeRange}
-        setTimeRange={setTimeRange}
-        setSearchInput={setSearchInput}
-        searchInput={searchInput}
+      // currency={currency}
+      // setCurrency={setCurrency}
+      // timeRange={timeRange}
+      // setTimeRange={setTimeRange}
+      // setSearchInput={setSearchInput}
+      // searchInput={searchInput}
       />
 
       {/* Outlet (Scrollable Content) */}

@@ -1,15 +1,26 @@
 import React from "react";
-
-export default function SearchSection({
+import {
+  favs,
+  nftObj,
   currency,
-  setCurrency,
   timeRange,
-  setTimeRange,
+  onlyFavs,
+  dark,
   searchInput,
-  setSearchInput,
-}) {
+} from "../App.jsx";
+
+export default function SearchSection(
+  {
+    // currency,
+    // setCurrency,
+    // timeRange,
+    // setTimeRange,
+    // searchInput,
+    // setSearchInput,
+  }
+) {
   const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
+    searchInput.value = e.target.value;
   };
 
   return (
@@ -27,26 +38,34 @@ export default function SearchSection({
 
       <div className=" border-white border-2 border-black">
         <button
-          className={`${timeRange === "24h" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setTimeRange("24h")}
+          className={`${
+            timeRange.value === "24h" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (timeRange.value = "24h")}
         >
           24h
         </button>
         <button
-          className={`${timeRange === "7d" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setTimeRange("7d")}
+          className={`${
+            timeRange.value === "7d" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (timeRange.value = "7d")}
         >
           7D
         </button>
         <button
-          className={`${timeRange === "30d" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setTimeRange("30d")}
+          className={`${
+            timeRange.value === "30d" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (timeRange.value = "30d")}
         >
           30D
         </button>
         <button
-          className={`${timeRange === "90d" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setTimeRange("90d")}
+          className={`${
+            timeRange.value === "90d" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (timeRange.value = "90d")}
         >
           90D
         </button>
@@ -54,14 +73,18 @@ export default function SearchSection({
 
       <div className=" border-white border-2 border-black">
         <button
-          className={`${currency === "Eth" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setCurrency("Eth")}
+          className={`${
+            currency.value === "Eth" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (currency.value = "Eth")}
         >
           <i className="lab la-ethereum"></i>
         </button>
         <button
-          className={`${currency === "Usd" ? "bg-red-500 text-white" : ""}`}
-          onClick={() => setCurrency("Usd")}
+          className={`${
+            currency.value === "Usd" ? "bg-red-500 text-white" : ""
+          }`}
+          onClick={() => (currency.value = "Usd")}
         >
           <i className="las la-dollar-sign"></i>
         </button>

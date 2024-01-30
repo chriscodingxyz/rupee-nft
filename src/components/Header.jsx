@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
+import {
+  favs,
+  nftObj,
+  currency,
+  timeRange,
+  onlyFavs,
+  dark,
+  searchInput,
+} from "../App.jsx";
 
-export default function Header({ setDark }) {
+export default function Header({}) {
   const [showNavigation, setShowNavigation] = useState(false);
 
   //   useEffect(() => {
@@ -76,7 +85,7 @@ export default function Header({ setDark }) {
       <div className="">
         <i
           style={{ fontSize: "1.2rem" }}
-          onClick={() => setDark((curr) => !curr)}
+          onClick={() => (dark.value = !dark.value)}
           className="animated-fade glow las la-adjust mr-3 text-white cursor-pointer hover:rotate-180 rounded-full opacity-75 hover:opacity-100"
         ></i>
       </div>
