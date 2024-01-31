@@ -265,7 +265,12 @@ export default function NftStuff({
                         title={`Items sold within ${timeRange}`}
                       >
                         {item.stats.count[`val${timeRange}`]
-                          ? item.stats.count[`val${timeRange}`]
+                          ? Number(
+                              item.stats.count[`val${timeRange}`]
+                            ).toLocaleString(undefined, {
+                              minimumFractionDigits: 0,
+                              maximumFractionDigits: 0,
+                            })
                           : "-"}
                       </td>
                       <td
@@ -278,7 +283,10 @@ export default function NftStuff({
                               item.stats.salesTemporalityEth.volume[
                                 `val${timeRange}`
                               ]
-                            ).toLocaleString()}
+                            ).toLocaleString(undefined, {
+                              minimumFractionDigits: 0,
+                              maximumFractionDigits: 0,
+                            })}
                             <i className="lab la-ethereum"></i>
                           </>
                         ) : (
