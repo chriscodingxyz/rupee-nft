@@ -187,12 +187,12 @@ footer {
 
 .dark-theme .navigation-overlay {
   background-color: black;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 5px solid rgba(255, 255, 255, 0.8);
 }
 
 .light-theme .navigation-overlay {
   background-color: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 5px solid rgba(0, 0, 0, 0.8);
 }
 
 .dark-theme input {

@@ -215,7 +215,10 @@ export default function NftStuff({
                             {Number(
                               item.stats.floorInfo.currentFloorEth
                             ).toFixed(1)}
-                            <i title={`Floor price in $${currency}`}></i>
+                            <i
+                              title={`Floor price in $${currency}`}
+                              className="lab la-ethereum"
+                            ></i>
                           </>
                         ) : (
                           <>
