@@ -297,7 +297,21 @@ export default function NftStuff({
           </div>
         </div>
       ) : (
-        <div>Fetching...</div>
+        <div
+          className="flex flex-col justify-center items-center h-screen"
+          style={{ minHeight: "100vh" }}
+        >
+          <div className="text-center">
+            <h1 className="text-4xl font-bold">fetching...</h1>
+            <div className="mt-4">
+              <img
+                className="h-1/4 w-1/4 mx-auto"
+                src="thisisfine.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
