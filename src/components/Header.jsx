@@ -16,15 +16,15 @@ export default function Header({ setDark }) {
   };
 
   return (
-    <div className="bg-black flex justify-between items-center">
+    <div className="flex justify-between items-center">
       <div>
         <i
           style={{ fontSize: "2rem" }}
-          className="animated-fade text-white las la-bars ml-2 cursor-pointer hover:rotate-180"
+          className="animated-fade  las la-bars ml-2 cursor-pointer hover:rotate-180"
           onClick={toggleNavigation}
         ></i>
         {showNavigation && (
-          <div className="navigation-overlay text-white absolute bg-black w-full h-1/2 p-2 flex justify-center items-center text-center ">
+          <div className="navigation-overlay  absolute w-full h-1/2 p-2 flex justify-center items-center text-center ">
             {/* Navigation links go here */}
             {/* <div>NAVIGATION</div> */}
 
@@ -61,14 +61,14 @@ export default function Header({ setDark }) {
             </div>
             <i
               onClick={toggleNavigation}
-              class="animated-fade absolute text-white las la-times right-0 bottom-0 cursor-pointer hover:rotate-90"
+              class="animated-fade absolute las la-times right-0 bottom-0 cursor-pointer hover:rotate-90"
               style={{ fontSize: "2rem" }}
             ></i>
           </div>
         )}
       </div>
       <div>
-        <h1 className="text-3xl font-bold text-white mx-auto">
+        <h1 className="text-3xl font-bold mx-auto">
           <a href="/">🍒CHERRY NFT👾</a>
         </h1>
       </div>
@@ -77,7 +77,7 @@ export default function Header({ setDark }) {
         <i
           style={{ fontSize: "1.2rem" }}
           onClick={() => setDark((curr) => !curr)}
-          className="animated-fade glow las la-adjust mr-3 text-white cursor-pointer hover:rotate-180 rounded-full opacity-75 hover:opacity-100"
+          className="animated-fade glow las la-adjust mr-3  cursor-pointer hover:rotate-180 rounded-full"
         ></i>
       </div>
     </div>

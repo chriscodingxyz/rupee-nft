@@ -64,8 +64,8 @@ export default function NftStuff({
       {filteredNftObj ? (
         <div className="flex flex-grow">
           <div className="flex-none">
-            <table className="table-auto bg-black  ">
-              <thead className="bg-black  ">
+            <table className="table-auto ">
+              <thead className=" ">
                 <tr>
                   <th className="w-6 min-w-6 ">#</th>
                   <th
@@ -92,7 +92,7 @@ export default function NftStuff({
                         // }
                       >
                         <div className="flex">
-                          <span style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                          <span>
                             {item.ranking < 10
                               ? `00${item.ranking}`
                               : item.ranking < 100
@@ -106,20 +106,23 @@ export default function NftStuff({
                         style={{ borderColor: "transparent" }}
                       >
                         <div
-                          className={`flex cursor-pointer hover:text-white ${
-                            favs.has(item.slug) ? "text-white" : ""
-                          }`}
+                          title="Add to Favorites"
+                          className={`flex cursor-pointer fav-star-div`}
                           onClick={() =>
                             favs.has(item.slug)
                               ? removeFav(item.slug, item.name)
                               : addFav(item.slug, item.name)
                           }
                         >
-                          <button className={`bg-black`}>
+                          <button
+                            className={
+                              favs.has(item.slug) ? "selected-star" : ""
+                            }
+                          >
                             {favs.has(item.slug) ? "★" : "☆"}
                           </button>
                           <img
-                            className={`w-7 h-7 border-white rounded border p-0 opacity-100 ${
+                            className={`w-7 h-7 rounded border p-0  ${
                               favs.has(item.slug) ? "glow-gold" : ""
                             }`}
                             src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
@@ -138,7 +141,7 @@ export default function NftStuff({
           </div>
           <div className="overflow-x-auto flex-grow">
             <table className="table">
-              <thead className="bg-black  ">
+              <thead className="">
                 <tr>
                   <th className="w-full text-left">NFT</th>
                   <th className="w-20 min-w-20   text-right">

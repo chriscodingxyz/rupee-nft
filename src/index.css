@@ -25,40 +25,41 @@
   font-size: 16px;
 }
 
-.light-theme {
-  background-color: white;
-  color: black;
-}
-
-.dark-theme {
-  background-color: black;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.dark-theme button {
-  color: black;
-}
-
-.dark-theme td {
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-  border-right: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-.animated-fade {
-  transition: all 0.2s ease-in-out; /* Adjust the duration and timing function as needed */
-}
-
 html,
 body {
   overflow: hidden;
   scroll-behavior: smooth;
   opacity: 0.95;
-
   /* background-color: black;
   color: white; */
 }
+.animated-fade {
+  transition: all 0.2s ease-in-out; /* Adjust the duration and timing function as needed */
+}
 
-td {
+.light-theme {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-theme {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.8);
+  /* filter: invert(100%);
+  transition: all 0.5s; */
+}
+
+.dark-theme td {
+  font-size: 11px;
+  height: 2rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  border-right: 1px dashed rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.light-theme td {
   font-size: 11px;
   height: 2rem;
   border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
@@ -68,30 +69,29 @@ td {
   padding-left: 10px;
 }
 
-th {
+.dark-theme th {
   white-space: nowrap;
   font-family: Silkscreen;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
-
-  /* border-left: 1px solid white; */
 }
 
-button {
-  background-color: white;
-
-  /* opacity: 0.9; */
+.light-theme th {
+  white-space: nowrap;
+  font-family: Silkscreen;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 
-.glow {
-  animation: glow 1s infinite alternate;
+.dark-theme .glow {
+  animation: dark-theme-glow 1s infinite alternate;
 }
 
-.glow-gold {
-  animation: glow-gold 1s infinite alternate;
+.dark-theme .glow-gold {
+  animation: dark-theme-glow-gold 1s infinite alternate;
 }
 
-@keyframes glow {
+@keyframes dark-theme-glow {
   0% {
     box-shadow: 0 0 10px rgb(255, 255, 255); /* Blue color */
   }
@@ -100,7 +100,33 @@ button {
   }
 }
 
-@keyframes glow-gold {
+@keyframes dark-theme-glow-gold {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  }
+}
+
+.light-theme .glow {
+  animation: dark-theme-glow 1s infinite alternate;
+}
+
+.light-theme .glow-gold {
+  animation: dark-theme-glow-gold 1s infinite alternate;
+}
+
+@keyframes light-theme-glow {
+  0% {
+    box-shadow: 0 0 10px rgb(255, 255, 255); /* Blue color */
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(255, 255, 255); /* Increase the size of the shadow for the glow effect */
+  }
+}
+
+@keyframes light-theme-glow-gold {
   0% {
     box-shadow: 0 0 10px rgba(255, 215, 0, 1);
   }
@@ -110,7 +136,7 @@ button {
 }
 
 #searchsection {
-  background-color: black;
+  /* background-color: black; */
   padding-top: 10px;
   /* padding: 5px 0px; */
   white-space: nowrap;
@@ -144,4 +170,44 @@ input:hover {
 
 footer {
   font-family: Silkscreen;
+}
+
+.dark-theme .buttons-container {
+  border: 2px white solid;
+}
+
+.light-theme .buttons-container {
+  border: 2px black solid;
+}
+
+.dark-theme .navigation-overlay {
+  background-color: black;
+}
+
+.light-theme .navigation-overlay {
+  background-color: white;
+}
+
+.dark-theme input {
+  background-color: black;
+}
+
+.fav-star-div {
+  color: transparent;
+}
+
+.dark-theme .fav-star-div:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme .fav-star-div:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-theme .selected-star {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme .selected-star {
+  color: rgba(0, 0, 0, 0.8);
 }
