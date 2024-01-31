@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Header({ setDark }) {
   const [showNavigation, setShowNavigation] = useState(false);
+
+  const navigate = useNavigate();
 
   //   useEffect(() => {
   //     if (showNavigation) {
@@ -28,11 +31,27 @@ export default function Header({ setDark }) {
             {/* Navigation links go here */}
             {/* <div>NAVIGATION</div> */}
 
-            <ul className="">
-              <li>collections</li>
-
+            <ul className="cursor-pointer">
+              <li
+                className=""
+                onClick={() => {
+                  navigate("/");
+                  toggleNavigation();
+                }}
+              >
+                collections
+              </li>
+              <li
+                className=""
+                onClick={() => {
+                  navigate("/about");
+                  toggleNavigation();
+                }}
+              >
+                about
+              </li>
               <li>crypto</li>
-              <li>about</li>
+              <li></li>
               <li>
                 contact
                 <div>
