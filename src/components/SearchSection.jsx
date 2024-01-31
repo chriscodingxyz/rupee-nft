@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SearchSection({
   currency,
@@ -8,6 +8,7 @@ export default function SearchSection({
   searchInput,
   setSearchInput,
 }) {
+  const [inputShowing, setInputShowing] = useState(false);
   const handleInputChange = (e) => {
     setSearchInput(e.target.value);
   };
@@ -15,14 +16,19 @@ export default function SearchSection({
   return (
     <div className="flex justify-between items-center" id="searchsection">
       <div className=" flex items-center">
-        <i className="las la-search ml-3"></i>
-        <input
-          className="animated-fade  border-2 rounded border-gray-300 ml-3 w-full"
-          placeholder="...search"
-          type="text"
-          style={{ width: "100%" }}
-          onChange={handleInputChange}
-        />
+        <i
+          onClick={() => setInputShowing((curr) => !curr)}
+          className="las la-search ml-3 cursor-pointer"
+        ></i>
+        {inputShowing ? (
+          <input
+            className="animated-fade  border-2 rounded border-gray-300 ml-3 w-full"
+            placeholder="...search"
+            type="text"
+            style={{ width: "100%" }}
+            onChange={handleInputChange}
+          />
+        ) : null}
       </div>
 
       <div className="buttons-container rounded">
