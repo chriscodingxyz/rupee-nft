@@ -31,9 +31,9 @@ export default function Header({ setDark }) {
             {/* Navigation links go here */}
             {/* <div>NAVIGATION</div> */}
 
-            <ul className="cursor-pointer">
+            <ul className="cursor-pointer ">
               <li
-                className=""
+                className="hover:underline"
                 onClick={() => {
                   navigate("/");
                   toggleNavigation();
@@ -42,7 +42,7 @@ export default function Header({ setDark }) {
                 collections
               </li>
               <li
-                className=""
+                className="hover:underline"
                 onClick={() => {
                   navigate("/about");
                   toggleNavigation();
@@ -64,13 +64,13 @@ export default function Header({ setDark }) {
                   >
                     <i class="las la-envelope-square animated-fade hover:rotate-90 text-xl"></i>
                   </a>
-                  <a
+                  {/* <a
                     href="https://www.linkedin.com/in/wisniewskichris/"
                     target="_blank"
                     title="LinkedIn"
                   >
                     <i class="lab la-linkedin animated-fade hover:rotate-90 text-xl"></i>
-                  </a>
+                  </a> */}
                 </div>
               </li>
               {/* Add more navigation links as needed */}
