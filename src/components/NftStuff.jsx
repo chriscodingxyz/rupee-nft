@@ -120,7 +120,7 @@ export default function NftStuff({
                             {favs.has(item.slug) ? "★" : "☆"}
                           </button>
                           <img
-                            className={`w-7 h-7     ${
+                            className={`w-7 h-7 rounded    ${
                               favs.has(item.slug) ? "glow-gold" : ""
                             }`}
                             src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}

@@ -25,7 +25,7 @@ export default function SearchSection({
         />
       </div>
 
-      <div className="buttons-container">
+      <div className="buttons-container rounded">
         <button
           className={`${timeRange === "24h" ? "bg-red-500" : ""}`}
           onClick={() => setTimeRange("24h")}
@@ -52,7 +52,7 @@ export default function SearchSection({
         </button>
       </div>
 
-      <div className=" buttons-container">
+      <div className=" buttons-container rounded">
         <button
           className={`${currency === "Eth" ? "bg-red-500 " : ""}`}
           onClick={() => setCurrency("Eth")}

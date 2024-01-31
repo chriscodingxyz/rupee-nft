@@ -178,11 +178,11 @@ footer {
 }
 
 .dark-theme .buttons-container {
-  border: 2px white solid;
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .light-theme .buttons-container {
-  border: 2px black solid;
+  border: 2px lightgray solid;
 }
 
 .dark-theme .navigation-overlay {
