@@ -152,7 +152,7 @@ export default function NftStuff({
                     )}
                   </th>
                   {/* <th className="w-20 min-w-20   text-left">USD</th> */}
-                  <th className="w-20 min-w-20   text-right">Mcap</th>
+
                   <th className="w-20 min-w-20   text-right">
                     change
                     {/* <span style={{ fontSize: "8px" }}>{timeRange}</span> */}
@@ -163,6 +163,7 @@ export default function NftStuff({
                     {/* <span style={{ fontSize: "8px" }}>{timeRange}</span> */}
                   </th>
                   <th className="w-20 min-w-20   text-right">volume</th>
+                  <th className="w-20 min-w-20   text-right">Mcap</th>
                 </tr>
               </thead>
               <tbody>
@@ -231,25 +232,6 @@ export default function NftStuff({
                       </td>
 
                       <td
-                        className="w-20 min-w-20  text-right"
-                        title={`Total Marketcap in $${currency}`}
-                      >
-                        {currency === "Eth" ? (
-                          <>
-                            {Number(item.stats.floorCapEth).toLocaleString()}
-                            <i className="lab la-ethereum"></i>
-                          </>
-                        ) : (
-                          <>
-                            {abbreviateNumber(
-                              Number(item.stats.floorCapUsd).toFixed(0)
-                            )}
-                            <i className="las la-dollar-sign"></i>
-                          </>
-                        )}
-                      </td>
-
-                      <td
                         title={`$${currency} price % change within ${timeRange}`}
                         className={`w-20 min-w-20  text-right ${
                           Number(
@@ -304,6 +286,24 @@ export default function NftStuff({
                                   `val${timeRange}`
                                 ]
                               ).toFixed(0)
+                            )}
+                            <i className="las la-dollar-sign"></i>
+                          </>
+                        )}
+                      </td>
+                      <td
+                        className="w-20 min-w-20  text-right"
+                        title={`Total Marketcap in $${currency}`}
+                      >
+                        {currency === "Eth" ? (
+                          <>
+                            {Number(item.stats.floorCapEth).toLocaleString()}
+                            <i className="lab la-ethereum"></i>
+                          </>
+                        ) : (
+                          <>
+                            {abbreviateNumber(
+                              Number(item.stats.floorCapUsd).toFixed(0)
                             )}
                             <i className="las la-dollar-sign"></i>
                           </>
