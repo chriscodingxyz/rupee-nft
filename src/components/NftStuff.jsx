@@ -52,7 +52,7 @@ export default function NftStuff({
     : nftObj;
 
   return (
-    <div id="nftstufftop" className="overflow-x-auto">
+    <div id="nftstufftop" className="overflow-x-auto cursor-default">
       <div
         className="animated-fade fixed bottom-4 right-4 bg-yellow-400 text-black  rounded-full px-2 py-1 cursor-pointer shadow-md transition duration-200 hover:bg-orange-400 hover:pb-4"
         onClick={scrollToTop}
@@ -195,17 +195,26 @@ export default function NftStuff({
                             {item.name}
                           </a>
                         </span>
-                        <div style={{ fontSize: "8px", color: "gray" }}>
+                        <div
+                          title="Collection size"
+                          style={{ fontSize: "8px", color: "gray" }}
+                        >
                           ---{item.stats.totalSupply}
                         </div>
+                        {/* {item.name === "CryptoPunks" ? (
+                          <div className="h-full"></div>
+                        ) : null} */}
                       </td>
-                      <td className="w-20 min-w-20 text-right">
+                      <td
+                        className="w-20 min-w-20 text-right"
+                        title={`Floor price in $${currency}`}
+                      >
                         {currency === "Eth" ? (
                           <>
                             {Number(
                               item.stats.floorInfo.currentFloorEth
                             ).toFixed(1)}
-                            <i className="lab la-ethereum"></i>
+                            <i title={`Floor price in $${currency}`}></i>
                           </>
                         ) : (
                           <>
@@ -221,7 +230,10 @@ export default function NftStuff({
                         )}
                       </td>
 
-                      <td className="w-20 min-w-20  text-right">
+                      <td
+                        className="w-20 min-w-20  text-right"
+                        title={`Total Marketcap in $${currency}`}
+                      >
                         {currency === "Eth" ? (
                           <>
                             {Number(item.stats.floorCapEth).toLocaleString()}
@@ -238,6 +250,7 @@ export default function NftStuff({
                       </td>
 
                       <td
+                        title={`$${currency} price % change within ${timeRange}`}
                         className={`w-20 min-w-20  text-right ${
                           Number(
                             item.stats[`floorTemporality${currency}`][
@@ -262,12 +275,18 @@ export default function NftStuff({
                         ).toFixed(2)}
                         %
                       </td>
-                      <td className="w-20 min-w-20 text-right">
+                      <td
+                        className="w-20 min-w-20 text-right"
+                        title={`Items sold within ${timeRange}`}
+                      >
                         {item.stats.count[`val${timeRange}`]
                           ? item.stats.count[`val${timeRange}`]
                           : "-"}
                       </td>
-                      <td className="w-20 min-w-20  text-right">
+                      <td
+                        className="w-20 min-w-20  text-right"
+                        title={`${timeRange} volume in $${currency}`}
+                      >
                         {currency === "Eth" ? (
                           <>
                             {Number(

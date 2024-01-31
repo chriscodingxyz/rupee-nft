@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 @font-face {
   font-family: "Proto Mono";
   src: url("/fonts/ProtoMono-Regular.woff2") format("woff2");
@@ -119,10 +124,10 @@ body {
 
 @keyframes light-theme-glow {
   0% {
-    box-shadow: 0 0 10px rgb(255, 255, 255); /* Blue color */
+    box-shadow: 0 0 10px rgb(0, 0, 0); /* Blue color */
   }
   100% {
-    box-shadow: 0 0 20px rgb(255, 255, 255); /* Increase the size of the shadow for the glow effect */
+    box-shadow: 0 0 20px rgb(0, 0, 0); /* Increase the size of the shadow for the glow effect */
   }
 }
 
@@ -220,4 +225,8 @@ footer {
 
 .light-theme img {
   border: 1px solid black;
+}
+
+.light-theme .sol-icon {
+  filter: invert();
 }

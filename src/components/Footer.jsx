@@ -24,14 +24,19 @@ export default function Footer() {
       <marquee behavior="scroll" direction="left" scrollamount="5">
         {Object.entries(prices).map(([crypto, { usd }]) => (
           <span key={crypto} style={{ display: "inline-block" }}>
-            {crypto === "bitcoin" && <i class="fa fa-bitcoin"></i>}
-            {crypto === "ethereum" && <i class="lab la-ethereum ml-6"></i>}
+            {crypto === "bitcoin" && (
+              <i class="fa fa-bitcoin" title="$bitcoin"></i>
+            )}
+            {crypto === "ethereum" && (
+              <i class="lab la-ethereum ml-6" title="$ethereum"></i>
+            )}
             {crypto === "solana" && (
               <img
-                className="ml-6"
+                className="ml-6 sol-icon"
                 style={{ height: "15px", display: "inline-block" }}
                 src="/icons8-solana-64.png"
                 alt=""
+                title="$Solana"
               />
             )}
             {` = $${usd.toFixed(0)}`}
