@@ -17,7 +17,10 @@ export default function SearchSection({
     <div className="flex justify-between items-center" id="searchsection">
       <div className=" flex items-center">
         <i
-          onClick={() => setInputShowing((curr) => !curr)}
+          onClick={() => {
+            setInputShowing((curr) => !curr);
+            setSearchInput("");
+          }}
           className="las la-search ml-3 cursor-pointer"
         ></i>
         {inputShowing ? (
