@@ -25,6 +25,7 @@ export default function SearchSection({
             className="animated-fade  border-2 rounded border-gray-300 ml-3 w-full"
             placeholder="...search"
             type="text"
+            value={searchInput}
             style={{ width: "100%" }}
             onChange={handleInputChange}
           />

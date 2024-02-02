@@ -81,6 +81,8 @@ function App() {
                   dark={dark}
                   userFavCollections={userFavCollections}
                   setUserFavCollections={setUserFavCollections}
+                  searchInput={searchInput}
+                  setSearchInput={setSearchInput}
                 />
               }
             />

@@ -230,3 +230,13 @@ footer {
 .light-theme .sol-icon {
   filter: invert();
 }
+
+.dark-theme .highlight {
+  background-color: white;
+  color: black;
+}
+
+.light-theme .highlight {
+  background-color: black;
+  color: white;
+}

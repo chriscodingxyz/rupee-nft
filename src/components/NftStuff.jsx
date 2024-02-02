@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
 
 const abbreviateNumber = (value) => {
@@ -22,29 +22,18 @@ function scrollToTop() {
 
 export default function NftStuff({
   nftObj,
-  favs,
-  setFavs,
+  // favs,
+  // setFavs,
   currency,
   timeRange,
   onlyFavs,
   setOnlyFavs,
   searchInput,
+  setSearchInput,
   dark,
   userFavCollections,
   setUserFavCollections,
 }) {
-  // const addFav = (slug, name) => {
-  //   setFavs((prevFavs) => new Set([...prevFavs, slug]));
-  //   toast(`Added ${name} to ⭐️`);
-  // };
-
-  // const removeFav = (slug, name) => {
-  //   const updatedFavs = new Set(favs);
-  //   updatedFavs.delete(slug);
-  //   setFavs(updatedFavs);
-  //   toast(`Removed ${name} from ⭐️`);
-  // };
-
   const addFav = (slug, name) => {
     setUserFavCollections((prevFavs) => [...prevFavs, slug]);
     toast(`Added ${name} to ⭐️`);
@@ -58,13 +47,34 @@ export default function NftStuff({
     toast(`Removed ${name} from ⭐️`);
   };
 
-  // useEffect(() => {
-  //   console.log("the fav list", favs);
-  // }, [favs]);
+  const filteredNftObj = nftObj
+    ? onlyFavs
+      ? nftObj.filter((item) => userFavCollections.includes(item.slug))
+      : nftObj
+    : [];
 
-  const filteredNftObj = onlyFavs
-    ? nftObj.filter((item) => userFavCollections.includes(item.slug))
-    : nftObj;
+  const filteredSearchNftObj = filteredNftObj.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+      item.slug.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  if (!nftObj) {
+    return (
+      <div className="text-center">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="mt-4">
+          <img className="h-1/4 w-1/4 mx-auto" src="thisisfine.jpg" alt="" />
+        </div>
+        <br />
+        <h1 className="text-2xl font-bold">...fetching...</h1>
+      </div>
+    );
+  }
 
   return (
     <div id="nftstufftop" className="overflow-x-auto cursor-default">
@@ -76,7 +86,7 @@ export default function NftStuff({
       >
         <i class="las la-arrow-circle-up"></i>
       </div>
-      {filteredNftObj ? (
+      {filteredSearchNftObj.length > 0 ? (
         <div className="flex flex-grow">
           <div className="flex-none">
             <table className="table-auto ">
@@ -84,15 +94,29 @@ export default function NftStuff({
                 <tr>
                   <th className="">#</th>
                   <th
-                    onClick={() => setOnlyFavs((curr) => !curr)}
-                    className=" cursor-pointer"
+                    onClick={() => {
+                      if (!onlyFavs) {
+                        if (userFavCollections.length > 0) {
+                          setOnlyFavs(true);
+                        } else {
+                          toast.error("Favorite 1 or more collections first");
+                        }
+                      } else {
+                        setOnlyFavs((curr) => !curr);
+                      }
+                    }}
+                    className="cursor-pointer"
                   >
+                    <span style={{ fontSize: "0.5rem" }}>
+                      {userFavCollections.length}
+                    </span>
+
                     {onlyFavs ? "⭐️" : "☆"}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {filteredNftObj
+                {filteredSearchNftObj
                   .filter((item) => item.ranking <= 420)
                   .sort((a, b) => a.ranking - b.ranking)
                   .map((item, index) => (
@@ -186,7 +210,7 @@ export default function NftStuff({
                 </tr>
               </thead>
               <tbody>
-                {filteredNftObj
+                {filteredSearchNftObj
                   .filter((item) => item.ranking <= 420)
                   .sort((a, b) => a.ranking - b.ranking)
                   .map((item, index) => (
@@ -212,7 +236,20 @@ export default function NftStuff({
                             target="_blank"
                             title={item.name}
                           >
-                            {item.name}
+                            {searchInput
+                              ? item.name
+                                  .split(new RegExp(`(${searchInput})`, "gi"))
+                                  .map((part, index) =>
+                                    part.toLowerCase() ===
+                                    searchInput.toLowerCase() ? (
+                                      <span key={index} className="highlight">
+                                        {part}
+                                      </span>
+                                    ) : (
+                                      <span key={index}>{part}</span>
+                                    )
+                                  )
+                              : item.name}
                           </a>
                         </span>
                         <div
@@ -356,7 +393,7 @@ export default function NftStuff({
             <img className="h-1/4 w-1/4 mx-auto" src="thisisfine.jpg" alt="" />
           </div>
           <br />
-          <h1 className="text-2xl font-bold">...fetching...</h1>
+          <h1 className="text-2xl font-bold">No results found</h1>
         </div>
       )}
     </div>
