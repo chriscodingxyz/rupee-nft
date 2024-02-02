@@ -59,6 +59,12 @@ export default function NftStuff({
       item.slug.toLowerCase().includes(searchInput.toLowerCase())
   );
 
+  useEffect(() => {
+    if (userFavCollections.length === 0) {
+      setOnlyFavs(false);
+    }
+  }, [userFavCollections]);
+
   if (!nftObj) {
     return (
       <div className="text-center">
