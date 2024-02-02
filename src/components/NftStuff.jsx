@@ -30,25 +30,40 @@ export default function NftStuff({
   setOnlyFavs,
   searchInput,
   dark,
+  userFavCollections,
+  setUserFavCollections,
 }) {
+  // const addFav = (slug, name) => {
+  //   setFavs((prevFavs) => new Set([...prevFavs, slug]));
+  //   toast(`Added ${name} to ⭐️`);
+  // };
+
+  // const removeFav = (slug, name) => {
+  //   const updatedFavs = new Set(favs);
+  //   updatedFavs.delete(slug);
+  //   setFavs(updatedFavs);
+  //   toast(`Removed ${name} from ⭐️`);
+  // };
+
   const addFav = (slug, name) => {
-    setFavs((prevFavs) => new Set([...prevFavs, slug]));
+    setUserFavCollections((prevFavs) => [...prevFavs, slug]);
     toast(`Added ${name} to ⭐️`);
   };
 
   const removeFav = (slug, name) => {
-    const updatedFavs = new Set(favs);
-    updatedFavs.delete(slug);
-    setFavs(updatedFavs);
+    const updatedFavs = userFavCollections.filter((itemToRemove) => {
+      return slug !== itemToRemove;
+    });
+    setUserFavCollections(updatedFavs);
     toast(`Removed ${name} from ⭐️`);
   };
 
-  useEffect(() => {
-    console.log("the fav list", favs);
-  }, [favs]);
+  // useEffect(() => {
+  //   console.log("the fav list", favs);
+  // }, [favs]);
 
   const filteredNftObj = onlyFavs
-    ? nftObj.filter((item) => favs.has(item.slug))
+    ? nftObj.filter((item) => userFavCollections.includes(item.slug))
     : nftObj;
 
   return (
@@ -107,21 +122,25 @@ export default function NftStuff({
                           title="Add to Favorites"
                           className={`flex cursor-pointer fav-star-div`}
                           onClick={() =>
-                            favs.has(item.slug)
+                            userFavCollections.includes(item.slug)
                               ? removeFav(item.slug, item.name)
                               : addFav(item.slug, item.name)
                           }
                         >
                           <button
                             className={
-                              favs.has(item.slug) ? "selected-star" : ""
+                              userFavCollections.includes(item.slug)
+                                ? "selected-star"
+                                : ""
                             }
                           >
-                            {favs.has(item.slug) ? "★" : "☆"}
+                            {userFavCollections.includes(item.slug) ? "★" : "☆"}
                           </button>
                           <img
                             className={`w-7 h-7 rounded    ${
-                              favs.has(item.slug) ? "glow-gold" : ""
+                              userFavCollections.includes(item.slug)
+                                ? "glow-gold"
+                                : ""
                             }`}
                             src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
                             onError={(e) => {

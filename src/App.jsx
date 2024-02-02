@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import { Toaster, toast } from "sonner";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 import NftStuff from "./components/NftStuff";
 import AppLayout from "./ui/AppLayout";
@@ -10,15 +11,19 @@ import About from "./components/About";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
+  const [userFavCollections, setUserFavCollections] = useLocalStorage(
+    "userFavCollections",
+    []
+  );
   const [nftObj, setNftObj] = useState(null);
-  const [favs, setFavs] = useState(new Set());
+  // const [favs, setFavs] = useState(new Set());
   //eth , usd
   const [currency, setCurrency] = useState("Eth");
   //diff24, diff7d, diff14d, diff30d, diff90d
   const [timeRange, setTimeRange] = useState("24h");
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useLocalStorage("dark", false);
   // const nftApiLink = "nftData.json";
   const nftAPI = import.meta.env.VITE_NFTAPI;
 
@@ -65,8 +70,8 @@ function App() {
               path=""
               element={
                 <NftStuff
-                  favs={favs}
-                  setFavs={setFavs}
+                  // favs={favs}
+                  // setFavs={setFavs}
                   nftObj={nftObj}
                   setNftObj={setNftObj}
                   currency={currency}
@@ -74,6 +79,8 @@ function App() {
                   onlyFavs={onlyFavs}
                   setOnlyFavs={setOnlyFavs}
                   dark={dark}
+                  userFavCollections={userFavCollections}
+                  setUserFavCollections={setUserFavCollections}
                 />
               }
             />
