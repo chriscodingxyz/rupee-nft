@@ -66,7 +66,8 @@ function App() {
               />
             }
           >
-            <Route index element={<HomePage />} />
+            {/* <Route index element={<HomePage />} /> */}
+            <Route index element={<Navigate to="/collections" />} />
             <Route
               path="collections"
               element={
