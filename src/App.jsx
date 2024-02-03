@@ -15,15 +15,13 @@ function App() {
     "userFavCollections",
     []
   );
+  const [dark, setDark] = useLocalStorage("dark", false);
   const [nftObj, setNftObj] = useState(null);
-  // const [favs, setFavs] = useState(new Set());
-  //eth , usd
   const [currency, setCurrency] = useState("Eth");
-  //diff24, diff7d, diff14d, diff30d, diff90d
   const [timeRange, setTimeRange] = useState("24h");
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  const [dark, setDark] = useLocalStorage("dark", false);
+
   // const nftApiLink = "nftData.json";
   const nftAPI = import.meta.env.VITE_NFTAPI;
 

@@ -87,8 +87,11 @@ export default function Header({ setDark }) {
         )}
       </div>
       <div>
-        <h1 className="text-3xl font-bold mx-auto">
-          <a href="/">🍒CHERRY NFT👾</a>
+        <h1
+          className="text-3xl font-bold mx-auto hover:text-white "
+          style={{ fontFamily: "Silkscreen" }}
+        >
+          <a href="/">🍒cherry NFT👾</a>
         </h1>
       </div>
 
