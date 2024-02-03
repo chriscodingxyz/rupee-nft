@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+
 const nftAPI = import.meta.env.VITE_NFTAPI;
 
 export default function CollectionItem() {
@@ -16,6 +17,7 @@ export default function CollectionItem() {
         const response = await axios.get(
           `https://api.nftpricefloor.com/api/projects/${slug}?qapikey=${nftAPI}`
         );
+
         const { stats, details } = response.data;
 
         setItemStats(stats);
@@ -29,84 +31,119 @@ export default function CollectionItem() {
   }, [slug]);
 
   return (
-    <div className="text-center">
-      *** UNDER CONSTRUCTION ***
-      <img
-        src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${slug}.png%3Fversion%3D6&w=256&q=75`}
-        onError={(e) => {
-          e.target.src =
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/200px-SMPTE_Color_Bars.svg.png";
-        }}
-        alt=""
-      />
-      STATS:
-      <ul>
-        <li>project id: {itemStats?.projectId}</li>
-        <li>slug: {itemStats?.slug}</li>
-        <li>totalSupply: {itemStats?.totalSupply}</li>
-        <li>listedCount: {itemStats?.listedCount}</li>
-        <li>totalOwners: {itemStats?.totalOwners}</li>
-        <li>updatedAt: {itemStats?.updatedAt}</li>
-      </ul>
+    <div className="p-4">
+      <div className="flex">
+        <div className="flex-1">
+          <img
+            style={{ borderWidth: "5px", borderRadius: "50%" }}
+            src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${slug}.png%3Fversion%3D6&w=256&q=75`}
+            onError={(e) => {
+              e.target.src =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/200px-SMPTE_Color_Bars.svg.png";
+            }}
+            alt=""
+          />
+        </div>
+        <div className="flex-1 ">
+          <ul>
+            {/* <li>project id: {itemStats?.projectId}</li> */}
+            <li>
+              {itemDetails?.name}{" "}
+              <span style={{ fontSize: "10px" }}>({itemStats?.slug})</span>{" "}
+            </li>
+            <li>Supply: {itemStats?.totalSupply}</li>
+            <li>Listen: {itemStats?.listedCount}</li>
+            <li>Unique Owners: {itemStats?.totalOwners}</li>
+            <li>Updated: {itemStats?.updatedAt}</li>
+          </ul>
+        </div>
+      </div>
       <br />
       <br />
       <br />
-      DETAILS:
-      <ul>
-        <li>name: {itemDetails?.name}</li>
-        <li>slug: {itemDetails?.slug}</li>
-        <li>ranking: {itemDetails?.ranking}</li>
-        <li>imageBlur: {itemDetails?.imageBlur}</li>
-        <li>releaseDate: {itemDetails?.releaseDate}</li>
-        <li>creator: {itemDetails?.creator}</li>
-        <li>parentCollection: {itemDetails?.parentCollection.name}</li>
-        <li>subCollection: {itemDetails?.subCollection.name}</li>
-        <li>types: {itemDetails?.types}</li>
-        <li>blockchain: {itemDetails?.blockchain}</li>
-        <li>totalSupply: {itemDetails?.totalSupply}</li>
-        <li>
-          socialMedia:
-          {itemDetails?.socialMedia?.map((platform, index) => (
-            <span key={index}>
-              {index > 0 && ", "}{" "}
-              {/* Add comma and space for multiple platforms */}
-              <a href={platform.url} target="_blank" rel="noopener noreferrer">
-                {platform.name}
+      <div className="">
+        <ul>
+          {/* <li>name: {itemDetails?.name}</li>
+          <li>slug: {itemDetails?.slug}</li> */}
+          <li>Ranking: {itemDetails?.ranking}</li>
+          <li>Released: {itemDetails?.releaseDate}</li>
+          <li>Creator: {itemDetails?.creator?.name || "N/A"}</li>
+          {/* <li>
+            parentCollection: {itemDetails?.parentCollection?.name || "N/A"}
+          </li>
+          <li>subCollection: {itemDetails?.subCollection?.name || "N/A"}</li> */}
+          <li>
+            Types:{" "}
+            {typeof itemDetails?.types === "string"
+              ? itemDetails?.types
+              : itemDetails?.types?.join(", ")}
+          </li>
+          <li>Blockchain: {itemDetails?.blockchain}</li>
+          <li>Total Supply: {itemDetails?.totalSupply}</li>
+          <li>
+            Socials:
+            {itemDetails?.socialMedia?.map((platform, index) => (
+              <span key={index}>
+                {index > 0 && ", "}
+                <a
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {platform.name}
+                  <i className="las la-external-link-alt"></i>
+                </a>
+              </span>
+            ))}
+          </li>
+          <li>
+            Contract:{" "}
+            <a
+              href={`https://etherscan.io/address/${itemDetails?.contract}`}
+              target="_blank"
+            >
+              {itemDetails?.contract}
+              <i className="las la-external-link-alt"></i>
+            </a>
+          </li>
+          <li>Floor (eth): {itemDetails?.floorPriceEth || "N/A"}</li>
+          <li>Floor (usd): {itemDetails?.floorPriceUsd || "N/A"}</li>
+          <li>
+            Marketplaces:
+            {itemDetails?.marketplaces?.map((marketplace, index) => (
+              <span key={index}>
+                {index > 0 && ", "}
+                <a
+                  href={marketplace.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {marketplace.name} <i class="las la-external-link-alt"></i>
+                </a>
+              </span>
+            ))}
+          </li>
+          {itemDetails?.bestPriceUrl ? (
+            <li>
+              <a href={itemDetails?.bestPriceUrl} target="_blank">
+                Lowest Priced URL <i class="las la-external-link-alt"></i>
               </a>
-            </span>
-          ))}
-        </li>
-        <li>contract: {itemDetails?.contract}</li>
-        {/* <li>textEn: {itemDetails?.textEn}</li>
-        <li>textEs: {itemDetails?.textEs}</li> */}
-        <li>floorPriceEth: {itemDetails?.floorPriceEth}</li>
-        <li>floorPriceUsd: {itemDetails?.floorPriceUsd}</li>
-        <li>floorInfo: {itemDetails?.floorInfo.currentFloorEth}</li>
-        <li>
-          marketplaces:
-          {itemDetails?.marketplaces?.map((marketplace, index) => (
-            <span key={index}>
-              {index > 0 && ", "}{" "}
-              {/* Add comma and space for multiple marketplaces */}
-              <a
-                href={marketplace.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {marketplace.name}
-              </a>
-            </span>
-          ))}
-        </li>
-        <li>bestPriceUrl: {itemDetails?.bestPriceUrl}</li>
-        <li>creatorsFee: {itemDetails?.creatorsFee}</li>
-        <li>
-          creatorsFeePayoutAddress: {itemDetails?.creatorsFeePayoutAddress}
-        </li>
-        <li>mintPriceEth: {itemDetails?.mintPriceEth}</li>
-        <li>mintPriceUsd: {itemDetails?.mintPriceUsd}</li>
-        <li>reservoirCollectionId: {itemDetails?.reservoirCollectionId}</li>
-      </ul>
+            </li>
+          ) : null}
+
+          {/* <li>Creator fee: {itemDetails?.creatorsFee || "N/A"}</li>
+          <li>
+            Creator fee payout address:{" "}
+            {itemDetails?.creatorsFeePayoutAddress || "N/A"}
+          </li> */}
+          {itemDetails?.mintPriceEth && itemDetails?.mintPriceUsd ? (
+            <>
+              <li>Mint Price (eth): itemDetails?.mintPriceEth</li>
+              <li>Mint Price (usd): itemDetails?.mintPriceUsd</li>
+            </>
+          ) : null}
+        </ul>
+      </div>
     </div>
   );
 }
