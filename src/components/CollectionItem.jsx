@@ -31,7 +31,7 @@ export default function CollectionItem() {
   }, [slug]);
 
   return (
-    <div className="p-4">
+    <div className="p-4" id="collectionitem">
       <div className="flex">
         <div className="flex-1">
           <img
