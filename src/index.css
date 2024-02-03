@@ -240,3 +240,8 @@ footer {
   background-color: black;
   color: white;
 }
+
+.active {
+  border: 1px solid white;
+  padding: 0px 5px;
+}

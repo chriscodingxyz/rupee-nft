@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 
 const abbreviateNumber = (value) => {
@@ -20,7 +21,7 @@ function scrollToTop() {
   nftstufftop.scrollIntoView({ behavior: "smooth" });
 }
 
-export default function NftStuff({
+export default function Collections({
   nftObj,
   // favs,
   // setFavs,
@@ -235,13 +236,8 @@ export default function NftStuff({
                         }}
                       >
                         <i className="las la-braille"></i>
-                        <span>
-                          <a
-                            className="hover:underline"
-                            href={`https://nftpricefloor.com/${item.slug}`}
-                            target="_blank"
-                            title={item.name}
-                          >
+                        <span className="hover:underline ">
+                          <NavLink to={`/collections/${item.slug}`}>
                             {searchInput
                               ? item.name
                                   .split(new RegExp(`(${searchInput})`, "gi"))
@@ -256,7 +252,16 @@ export default function NftStuff({
                                     )
                                   )
                               : item.name}
-                          </a>
+                          </NavLink>
+
+                          {/* <a
+                            className="hover:underline "
+                            href={`https://nftpricefloor.com/${item.slug}`}
+                            target="_blank"
+                            title={item.name}
+                          >
+                            
+                          </a> */}
                         </span>
                         <div
                           title="Collection size"
@@ -267,6 +272,12 @@ export default function NftStuff({
                         {/* {item.name === "CryptoPunks" ? (
                           <div className="h-full"></div>
                         ) : null} */}
+                        {/* <NavLink to={`/collections/${item.slug}`}>
+                          <i
+                            title={item.stats.floorInfo.tokenInfo.contract}
+                            class="las la-plus-square"
+                          ></i>
+                        </NavLink> */}
                       </td>
                       <td
                         className="w-20 min-w-20 text-right"

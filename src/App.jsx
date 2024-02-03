@@ -5,10 +5,12 @@ import "./App.css";
 import { Toaster, toast } from "sonner";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
-import NftStuff from "./components/NftStuff";
+import Collections from "./pages/Collections";
 import AppLayout from "./ui/AppLayout";
 import About from "./components/About";
 import PageNotFound from "./pages/PageNotFound";
+import CollectionItem from "./components/CollectionItem";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const [userFavCollections, setUserFavCollections] = useLocalStorage(
@@ -22,20 +24,21 @@ function App() {
   const [onlyFavs, setOnlyFavs] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  // const nftApiLink = "nftData.json";
+  const nftApiLink = "nftData.json";
   const nftAPI = import.meta.env.VITE_NFTAPI;
 
   async function fetchData() {
     try {
       const response = await axios.get(
         `https://nftpricefloor.quickapi.io/api/projects?qapikey=${nftAPI}`
+        // nftApiLink
       );
       const { data } = response;
       setNftObj(data);
 
-      setTimeout(() => {
-        console.clear();
-      }, 5000);
+      // setTimeout(() => {
+      //   console.clear();
+      // }, 5000);
     } catch (error) {
       console.error("Catch error:", error);
     }
@@ -63,11 +66,11 @@ function App() {
               />
             }
           >
+            <Route index element={<HomePage />} />
             <Route
-              index
-              path=""
+              path="collections"
               element={
-                <NftStuff
+                <Collections
                   // favs={favs}
                   // setFavs={setFavs}
                   nftObj={nftObj}
@@ -84,7 +87,8 @@ function App() {
                 />
               }
             />
-            <Route index path="/about" element={<About />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/collections/:slug" element={<CollectionItem />} />
           </Route>
           {
             //anything under here is outside of the applayout
@@ -92,6 +96,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      {/* <CollectionItem /> */}
     </div>
   );
 }

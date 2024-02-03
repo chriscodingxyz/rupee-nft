@@ -1,0 +1,212 @@
+{
+  "stats": {
+    "id": 357,
+    "projectId": 275,
+    "slug": "azuki",
+    "totalSupply": 10000,
+    "listedCount": 609,
+    "totalOwners": 4145,
+    "floorInfo": {
+      "currentFloorEth": 6.521,
+      "currentFloorOrigin": "blur",
+      "currentFloorUsd": 15046.77058,
+      "latestFloorTs": 1706966723742,
+      "marketplaceSlug": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+      "tokenInfo": {
+        "blockchain": "ethereum",
+        "tokenId": "4803",
+        "contract": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+        "source": "blur"
+      }
+    },
+    "floorCapEth": 65210,
+    "floorCapUsd": 150467710,
+    "floorTemporalityEth": {
+      "diff24h": 1.7316692667706672,
+      "diff7d": -8.515712682379352,
+      "diff14d": -6.441893830703011,
+      "diff30d": 7.024454291810272,
+      "diff90d": 29.92628013548515
+    },
+    "floorTemporalityUsd": {
+      "diff24h": 1.9834064713442696,
+      "diff7d": -5.451935642092305,
+      "diff14d": -12.504954430888823,
+      "diff30d": 11.69700029314336,
+      "diff90d": 63.45032713739679
+    },
+    "salesTemporalityEth": {
+      "lowest": {
+        "val24h": 6.39,
+        "diff24h": 0.6299212598425202,
+        "val7d": 5.598,
+        "diff7d": -18.986975397973954,
+        "val30d": 0.1,
+        "diff30d": -83.05084745762711,
+        "val90d": 0.1,
+        "diff90d": 1349.2753623188405
+      },
+      "highest": {
+        "val24h": 9.6,
+        "diff24h": 43.884892086330936,
+        "val7d": 20,
+        "diff7d": -20,
+        "val30d": 95,
+        "diff30d": 31.944444444444443,
+        "val90d": 95,
+        "diff90d": -17.391304347826086
+      },
+      "average": {
+        "val24h": 6.530981855670104,
+        "diff24h": 0.8553913636346623,
+        "val7d": 6.758914756637172,
+        "diff7d": -6.61101325471337,
+        "val30d": 6.932708909340344,
+        "diff30d": 17.125647003770165,
+        "val90d": 6.448431396870576,
+        "diff90d": 44.73270900617589
+      },
+      "volume": {
+        "val24h": 1267.0104800000001,
+        "diff24h": 5.761869862406075,
+        "val7d": 9165.088410000006,
+        "diff7d": -25.944171914263936,
+        "val30d": 60640.40482999999,
+        "diff30d": 58.51640674975891,
+        "val90d": 113332.48321,
+        "diff90d": 371.8242522669942
+      },
+      "count": {
+        "val24h": 194,
+        "diff24h": 4.864864864864865,
+        "val7d": 1356,
+        "diff7d": -20.701754385964914,
+        "val30d": 8747,
+        "diff30d": 35.29775715390564,
+        "val90d": 17577,
+        "diff90d": 225.56028894239674
+      }
+    },
+    "salesTemporalityUsd": {
+      "lowest": {
+        "val24h": 14693.76724,
+        "diff24h": 0.9030700697228141,
+        "val7d": 13121.71984,
+        "diff7d": -16.38315270754959,
+        "val30d": 226.7087,
+        "diff30d": -83.68338060125278,
+        "val90d": 226.7087,
+        "diff90d": 1799.0016174818713
+      },
+      "highest": {
+        "val24h": 22151.35678,
+        "diff24h": 45.45752628858987,
+        "val7d": 45377.41464,
+        "diff7d": -18.509152531259936,
+        "val30d": 244712.84983,
+        "diff30d": 55.145995027800375,
+        "val90d": 244712.84983,
+        "diff90d": 27.8370395362396
+      },
+      "average": {
+        "val24h": 15045.145812061855,
+        "diff24h": 1.363148641576342,
+        "val7d": 15516.9647557817,
+        "diff7d": -8.229400409715094,
+        "val30d": 16489.05256919858,
+        "diff30d": 22.123849051951787,
+        "val90d": 14839.494440169397,
+        "diff90d": 97.11085427445465
+      },
+      "volume": {
+        "val24h": 2918758.28754,
+        "diff24h": 6.29432884576114,
+        "val7d": 21041004.208839986,
+        "diff7d": -27.227524535423193,
+        "val30d": 144229742.82277995,
+        "diff30d": 65.2823842683445,
+        "val90d": 260806565.97109,
+        "diff90d": 542.5050499004379
+      },
+      "count": {
+        "val24h": 194,
+        "diff24h": 4.864864864864865,
+        "val7d": 1356,
+        "diff7d": -20.701754385964914,
+        "val30d": 8747,
+        "diff30d": 35.29775715390564,
+        "val90d": 17577,
+        "diff90d": 225.56028894239674
+      }
+    },
+    "updatedAt": "2024-02-03T13:25:37.408Z"
+  },
+  "details": {
+    "name": "Azuki",
+    "slug": "azuki",
+    "ranking": 8,
+    "imageBlur": null,
+    "creator": null,
+    "parentCollection": { "name": "Chiru Labs", "slug": "chiru-labs" },
+    "subCollection": { "name": "Chiru Labs", "slug": "chiru-labs" },
+    "types": ["avatar"],
+    "blockchain": "ethereum",
+    "releaseDate": "2021-12-01",
+    "totalSupply": 10000,
+    "socialMedia": [
+      { "name": "website", "url": "https://www.azuki.com/" },
+      { "name": "twitter", "url": "https://twitter.com/azukizen" },
+      { "name": "discord", "url": "https://discord.com/invite/azuki" }
+    ],
+    "contract": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+    "textEn": "<h2>What is Azuki NFT?</h2><p>Unique hand-drawn artworks were the first creations to be tokenized within the blockchain. But that was soon taken over by the pixelated collectibles. Azuki is an NFT project that focuses on bringing back the old days when hand-drawn artworks ruled the crypto space. And it has been successful for the most part.</p><h3>Azuki NFT: anime based avatars</h3><p>Azuki NFT is a collection of 10,000 hand-drawn NFTs that give users access to The Garden. The project states that it is a corner of the internet especially designed for the creators, artists, and Web3 builders and enthusiasts to come to create a decentralized future for the NFTs. Access to an Azuki NFT gives holders a chance to be a part of random airdrops, an exclusive discord, and experiences within the Azuki ecosystem.</p><p>Each Azuki NFT comprises 12 traits: background, clothing, ears, eyes, face, hair, headgear, mouth, neck, offhand, special, and type.</p><p>It is important to know that Azuki is more than just an NFT. It is an NFT ecosystem with many NFTs, such as beans, masks, gates, and skateboards.</p><p>Azuki NFT was created by a Los Angeles-based startup known as Chiru Labs. They aim to create a decentralized metaverse. Zagabonds leads the team as a whole.</p><p>Due to the unique artwork of Azuki and the brand-forward approach it takes toward NFTs, Azuki overtook Bored Ape Yacht Club for a while as the highest-selling NFT project. Soon, other projects started to take note, leading the Azuki NFT developers to create 3D avatars for each NFT to interact with the metaverse projects, such as Decentraland and the Sandbox.</p><p>Azuki started to gain ground as soon as it entered the NFT space. By the time it ended up on Opensea after the end of the public sale, the floor price of this NFT was at 9ETH. It then went through a parabolic upswing at the beginning of April 2022 and started to accumulate 25ETH.</p><p>However, the arrival of the bear market created a sell pressure, and the price of this crypto plunged to near 0.15ETH &ndash; which was its all-time low. The floor price soon bounced, leading to the Azuki price accumulating at 10ETH for a time. Soon, there was another marginal slump, and the value of this NFT went below 6ETH.</p><p>Azuki NFT has been able to stay afloat even during this bearish market because of its utility and brand power. And it has continued to gain the attention of hardcore NFT enthusiasts looking to revitalize many art-based NFT projects.</p><h3>Who founded Azuki NFT?</h3><p>Azuki was founded by four anonymous founders who came together to create Chiru Labs, a Los Angeles-based startup focusing on creating a decentralized space for NFT artists, content creators, and NFT builders. These founders have a background in cryptocurrency markets, blockchain technology, and crypto gaming.</p><p>The four founders are led by ZZZZagabond, a crypto expert rumored to have been born in China. It is not unusual for an NFT project to be headed by anonymous individuals. However, the team was soon joined by a fifth member, Arnold Tsang, a concept artist known for his work in Overwatch.</p><p>Azuki is the most brand-forward NFT project to date, with Tsang saying that this project aims to &ldquo;have a big IP which animated series games, merchandise, and more.&rdquo;</p><h3>Azuki NFT: Origins and Vision</h3><p>Azuki founders paint themselves as the skaters of the internet. They are trying to blur the lines between the physical and the digital worlds &ndash; blending them.</p><p>The community of Azuki seeks to &ldquo;challenge the status quo, communicate boldly and push the boundaries.&rdquo; At its core, this project aims to create a decentralized brand with a community-owned metaverse.</p><p>According to the Mindmap of Azuki, there are three core values of the Azuki NFT project:</p><ol><li>Community first: For Azuki, everything must start and end with the community. They prioritize ensuring no centralized bodies are ever there to deter the project&rsquo;s core philosophy.</li><li>Dope Stuff only: It is easy to see by looking at the Azuki project that creativity is something they hold in high regard. The team makes Azuki out to be a community that&rsquo;s &ldquo;creative, brave and relentless&rdquo;. They don&rsquo;t want to follow trends; they want to create them. They are trying to find their own path in a market saturated with artwork-based NFTs.</li><li>Trust the process: The third value Azuki puts on its sleeves is trusting the process. The devs say they understand that decentralization is a slow process, and things won&rsquo;t move as quickly as centralized movements. Furthermore, even if a project is decentralized, that doesn&rsquo;t mean there is no one to lead. The project aims to ensure that all the contributors and the team can grow together within the ecosystem.</li></ol><p>&nbsp;With that ideology, the Azuki project has tried to move forward, creating opportunities for underdog artists who want to capitalize on their artworks.</p><h3>What makes Azuki a unique NFT Project</h3><p>Azuki is a brand-forward NFT project in the crypto space. It led to the project achieving major growth in the past. The most notable aspects of this NFT are:</p><h4>Community-Focus</h4><p>The Azuki project is completely focused on the community. The developers have a full&mdash;time moderation team on discord. They are paid moderators who ensure that the conversations within the Azuki community are professional and consist of ideas that can actually help the project. Currently, Azuki Grants are in progress. Under this program, artists will be issued a grant to create technologies and other NFTs within Azuki.</p><h4>Metaverse</h4><p>The metaverse is the highlight of Azuki. However, unlike the 3d worlds that most visualize a metaverse to be, the Azuki team considers the community&rsquo;s interaction on Discord and Twitter as part of the metaverse. However, the plans also include gaming. Currently, Azuki is working towards Bobu Fractionalization. That is, Azuki #40 is being fractionalized into ERC 1155 tokens.</p><h4>Real Life NFTs</h4><p>Azuki is working towards real-life NFTs, such as streetwear and collectibles. The core team is about to be expanded, and the IRL events are about to arrive. Also, there is news that Meta-games will also come. The community will take part in these games to unlock new experiences.</p><h3>What is the impact of the Azuki NFT Project?</h3><p>Azuki NFT was one of the first projects that overtook Bored Ape Yacht club as the highest-selling NFT. The artworks have this cool predisposition that many appreciate. YouTubers have come out to say that they &ldquo;Believe in the project&rsquo;s vision&rdquo;.</p><h3>What is the future of the Azuki NFT Project?</h3><p>In the official mind map, Azuki has planted the so-called &ldquo;Seedlings&rdquo;, which signal its future roadmap.</p><h4>Partnerships</h4><p>The team is currently working towards collaboration with other brands to move forward.</p><h4>DAO</h4><p>Azuki is also exploring Decentralized Autonomous Organization to ensure that the community holds control of Azuki&rsquo;s development.</p><h4>$BEAN</h4><p>The upcoming Azuki-verse might have a new cryptocurrency called $BEAN. The team is working to develop tokenomics to ensure that all legal requirements are met.</p><h3>Azuki Traits Breakdown</h3><p>Here is the breakdown of the Azuki traits</p><ol><li>8 types of backgrounds</li><li>98 items of clothing</li><li>32 variants of Ears</li><li>27 types of Eyes</li><li>19 types of face</li><li>123 styles of hair</li><li>36 types of headgear</li><li>30 types of mouths</li><li>15 variants of necks</li><li>53 offhand accessories</li><li>9 specials</li><li>4 types of characters</li></ol><p>There are overall 423-character traits for Azuki NFTs.</p><h3>How to Buy Azuki NFT?</h3><p>Azuki NFT is now available to purchase on Opensea. Users only have to connect their wallets and swap their ETH for the NFTs. However, it is important to know when to buy NFTs, especially now as the price is accumulating.</p><p>NFT Price Floor offers complete details allowing investors to look at the market trends before investing in their projects.</p>",
+    "textEs": null,
+    "floorPriceEth": 6.521,
+    "floorPriceUsd": 15046.77058,
+    "floorInfo": {
+      "currentFloorEth": 6.521,
+      "currentFloorOrigin": "blur",
+      "currentFloorUsd": 15046.77058,
+      "latestFloorTs": 1706966723742,
+      "marketplaceSlug": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+      "tokenInfo": {
+        "blockchain": "ethereum",
+        "tokenId": "4803",
+        "contract": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+        "source": "blur"
+      }
+    },
+    "marketplaces": [
+      {
+        "name": "opensea-pro",
+        "url": "https://pro.opensea.io/collection/0xed5af388653567af2f388e6224dc7c4b3241c544"
+      },
+      {
+        "name": "blur",
+        "url": "https://blur.io/collection/0xed5af388653567af2f388e6224dc7c4b3241c544"
+      },
+      {
+        "name": "uniswap",
+        "url": "https://app.uniswap.org/#/nfts/collection/0xed5af388653567af2f388e6224dc7c4b3241c544"
+      },
+      {
+        "name": "x2y2",
+        "url": "https://x2y2.io/collection/0xed5af388653567af2f388e6224dc7c4b3241c544"
+      },
+      {
+        "name": "looksrare",
+        "url": "https://looksrare.org/collections/0xED5AF388653567Af2F388E6224dC7C4b3241C544"
+      },
+      {
+        "name": "opensea",
+        "url": "https://opensea.io/collection/azuki?collectionSlug=azuki&search[sortBy]=PRICE&search[sortAscending]=true&search[resultModel]=ASSETS&search[toggles][0]=BUY_NOW"
+      }
+    ],
+    "bestPriceUrl": "https://blur.io/asset/0xed5af388653567af2f388e6224dc7c4b3241c544/4803",
+    "creatorsFee": null,
+    "creatorsFeePayoutAddress": null,
+    "mintPriceEth": null,
+    "mintPriceUsd": null,
+    "reservoirCollectionId": "0xed5af388653567af2f388e6224dc7c4b3241c544"
+  }
+}

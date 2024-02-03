@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Header({ setDark }) {
   const [showNavigation, setShowNavigation] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //   useEffect(() => {
   //     if (showNavigation) {
@@ -35,20 +35,20 @@ export default function Header({ setDark }) {
               <li
                 className="hover:underline"
                 onClick={() => {
-                  navigate("/");
+                  // navigate("/");
                   toggleNavigation();
                 }}
               >
-                collections
+                <NavLink to="/collections">collections</NavLink>
               </li>
               <li
                 className="hover:underline"
                 onClick={() => {
-                  navigate("/about");
+                  // navigate("/about");
                   toggleNavigation();
                 }}
               >
-                about
+                <NavLink to="/about">about</NavLink>
               </li>
               <li>crypto</li>
               <li></li>
@@ -91,7 +91,9 @@ export default function Header({ setDark }) {
           className="text-3xl font-bold mx-auto hover:text-white "
           style={{ fontFamily: "Silkscreen" }}
         >
-          <a href="/">🍒cherry NFT👾</a>
+          <a href="/">
+            🍒cherry NFT<i class="las la-gem"></i>
+          </a>
         </h1>
       </div>
 
