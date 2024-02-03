@@ -15,7 +15,8 @@ export default function CollectionItem() {
         if (!slug) return;
 
         const response = await axios.get(
-          `https://api.nftpricefloor.com/api/projects/${slug}?qapikey=${nftAPI}`
+          //   `https://api.nftpricefloor.com/api/projects/${slug}?qapikey=${nftAPI}`
+          "https://github.com/cherrydub/rupee-nft/blob/580753bd6bd7f20d81458fd5d6a1f932e40e1247/public/azukiStats.json"
         );
 
         const { stats, details } = response.data;
