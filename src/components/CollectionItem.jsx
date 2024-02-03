@@ -4,6 +4,12 @@ import { useParams } from "react-router-dom";
 
 const nftAPI = import.meta.env.VITE_NFTAPI;
 
+const socialsObj = {
+  twitter: "lab la-twitter",
+  discord: "lab la-discord",
+  website: "lab la-internet-explorer",
+};
+
 export default function CollectionItem() {
   const [itemStats, setItemStats] = useState(null);
   const [itemDetails, setItemDetails] = useState(null);
@@ -52,9 +58,34 @@ export default function CollectionItem() {
               <span style={{ fontSize: "10px" }}>({itemStats?.slug})</span>{" "}
             </li>
             <li>Supply: {itemStats?.totalSupply}</li>
-            <li>Listen: {itemStats?.listedCount}</li>
+            <li>Listed: {itemStats?.listedCount}</li>
             <li>Unique Owners: {itemStats?.totalOwners}</li>
-            <li>Updated: {itemStats?.updatedAt}</li>
+            {/* <li>Updated: {itemStats?.updatedAt}</li> */}
+            <li>
+              <a
+                href={`https://etherscan.io/address/${itemDetails?.contract}`}
+                target="_blank"
+              >
+                {itemDetails?.contract?.slice(0, 3)}...
+                {itemDetails?.contract?.slice(-3)}
+                <i className="las la-external-link-alt"></i>
+              </a>
+            </li>
+            <li>
+              {itemDetails?.socialMedia?.map((platform, index) => (
+                <span key={index}>
+                  {index > 0 && " "}
+                  <a
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i class={socialsObj[platform.name]}></i>
+                    {/* {platform.name} */}
+                  </a>
+                </span>
+              ))}
+            </li>
           </ul>
         </div>
       </div>
@@ -80,29 +111,15 @@ export default function CollectionItem() {
           </li>
           <li>Blockchain: {itemDetails?.blockchain}</li>
           <li>Total Supply: {itemDetails?.totalSupply}</li>
-          <li>
-            Socials:
-            {itemDetails?.socialMedia?.map((platform, index) => (
-              <span key={index}>
-                {index > 0 && ", "}
-                <a
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {platform.name}
-                  <i className="las la-external-link-alt"></i>
-                </a>
-              </span>
-            ))}
-          </li>
+
           <li>
             Contract:{" "}
             <a
               href={`https://etherscan.io/address/${itemDetails?.contract}`}
               target="_blank"
             >
-              {itemDetails?.contract}
+              {itemDetails?.contract?.slice(0, 3)}...
+              {itemDetails?.contract?.slice(-3)}
               <i className="las la-external-link-alt"></i>
             </a>
           </li>
