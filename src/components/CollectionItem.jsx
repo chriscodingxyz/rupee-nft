@@ -10,6 +10,16 @@ const socialsObj = {
   website: "lab la-internet-explorer",
 };
 
+const marketsObj = {
+  blur: "/marketplaceLogos/blurLogo.png",
+  discord: "/marketplaceLogos/discordlogo.png",
+  etherscan: "/marketplaceLogos/etherscan.png",
+  openseapro: "/marketplaceLogos/openseaproLogo.png",
+  opensea: "/marketplaceLogos/opensealogo.png",
+  twitter: "/marketplaceLogos/twitterLogo.png",
+  uniswap: "/marketplaceLogos/uniswapLogo.png",
+};
+
 export default function CollectionItem() {
   const [itemStats, setItemStats] = useState(null);
   const [itemDetails, setItemDetails] = useState(null);
@@ -80,7 +90,9 @@ export default function CollectionItem() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class={socialsObj[platform.name]}></i>
+                    <i
+                      class={socialsObj[platform.name.split("-").join("")]}
+                    ></i>
                     {/* {platform.name} */}
                   </a>
                 </span>
@@ -135,7 +147,12 @@ export default function CollectionItem() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {marketplace.name} <i class="las la-external-link-alt"></i>
+                  <img
+                    src={marketsObj[marketplace.name]}
+                    alt={marketplace.name}
+                    title={marketplace.name}
+                  />
+                  <i class="las la-external-link-alt"></i>
                 </a>
               </span>
             ))}

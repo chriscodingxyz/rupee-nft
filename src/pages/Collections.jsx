@@ -25,6 +25,7 @@ export default function Collections({
   nftObj,
   // favs,
   // setFavs,
+  nftObjLoading,
   currency,
   timeRange,
   onlyFavs,
@@ -66,7 +67,7 @@ export default function Collections({
     }
   }, [userFavCollections]);
 
-  if (!nftObj) {
+  if (nftObjLoading) {
     return (
       <div className="text-center">
         <br />
@@ -195,7 +196,7 @@ export default function Collections({
                   <th className="w-20 min-w-20   text-right">
                     {" "}
                     floor
-                    {currency === "Eth" ? (
+                    {currency === "Native" ? (
                       <i className="lab la-ethereum"></i>
                     ) : (
                       <i className="las la-dollar-sign"></i>
@@ -283,11 +284,12 @@ export default function Collections({
                         className="w-20 min-w-20 text-right"
                         title={`Floor price in $${currency}`}
                       >
-                        {currency === "Eth" ? (
+                        {currency === "Native" ? (
                           <>
                             {Number(
-                              item.stats.floorInfo.currentFloorEth
+                              item.stats.floorInfo.currentFloorNative
                             ).toFixed(1)}
+
                             <i
                               title={`Floor price in $${currency}`}
                               className="lab la-ethereum"
@@ -295,7 +297,7 @@ export default function Collections({
                           </>
                         ) : (
                           <>
-                            {item.stats.floorInfo.currentFloorUsd.toLocaleString(
+                            {item.stats?.floorInfo?.currentFloorUsd.toLocaleString(
                               undefined,
                               {
                                 minimumFractionDigits: 0,
@@ -311,7 +313,7 @@ export default function Collections({
                         title={`$${currency} price % change within ${timeRange}`}
                         className={`w-20 min-w-20  text-right ${
                           Number(
-                            item.stats[`floorTemporality${currency}`][
+                            item.stats?.[`floorTemporality${currency}`]?.[
                               "diff" + timeRange
                             ]
                           ) > 0
@@ -320,16 +322,16 @@ export default function Collections({
                         }`}
                       >
                         {Number(
-                          item.stats[`floorTemporality${currency}`][
+                          item.stats?.[`floorTemporality${currency}`]?.[
                             "diff" + timeRange
-                          ]
+                          ] ?? 0
                         ) > 0
                           ? "+"
                           : ""}
                         {Number(
-                          item.stats[`floorTemporality${currency}`][
+                          item.stats?.[`floorTemporality${currency}`]?.[
                             "diff" + timeRange
-                          ]
+                          ] ?? 0
                         ).toFixed(2)}
                         %
                       </td>
@@ -337,36 +339,39 @@ export default function Collections({
                         className="w-20 min-w-20 text-right"
                         title={`Items sold within ${timeRange}`}
                       >
-                        {item.stats.count[`val${timeRange}`]
+                        {item.stats.salesTemporalityNative.count[
+                          `val${timeRange}`
+                        ] !== undefined
                           ? Number(
-                              item.stats.count[`val${timeRange}`]
+                              item.stats.salesTemporalityNative.count[
+                                `val${timeRange}`
+                              ]
                             ).toLocaleString(undefined, {
                               minimumFractionDigits: 0,
                               maximumFractionDigits: 0,
                             })
                           : "-"}
                       </td>
+
                       <td
-                        className="w-20 min-w-20  text-right"
+                        className="w-20 min-w-20 text-right"
                         title={`${timeRange} volume in $${currency}`}
                       >
-                        {currency === "Eth" ? (
+                        {currency === "Native" ? (
                           <>
-                            {Number(
-                              item.stats.salesTemporalityEth.volume[
-                                `val${timeRange}`
-                              ]
-                            ).toLocaleString(undefined, {
+                            {item.stats.salesTemporalityNative?.volume?.[
+                              `val${timeRange}`
+                            ]?.toLocaleString(undefined, {
                               minimumFractionDigits: 0,
                               maximumFractionDigits: 0,
-                            })}
+                            }) || 0}
                             <i className="lab la-ethereum"></i>
                           </>
                         ) : (
                           <>
                             {abbreviateNumber(
                               Number(
-                                item.stats.salesTemporalityUsd.volume[
+                                item.stats.salesTemporalityUsd?.volume?.[
                                   `val${timeRange}`
                                 ]
                               ).toFixed(0)
@@ -376,18 +381,20 @@ export default function Collections({
                         )}
                       </td>
                       <td
-                        className="w-20 min-w-20  text-right"
+                        className="w-20 min-w-20 text-right"
                         title={`Total Marketcap in $${currency}`}
                       >
-                        {currency === "Eth" ? (
+                        {currency === "Native" ? (
                           <>
-                            {Number(item.stats.floorCapEth).toLocaleString()}
+                            {Number(
+                              item.stats?.floorCapNative
+                            )?.toLocaleString()}
                             <i className="lab la-ethereum"></i>
                           </>
                         ) : (
                           <>
                             {abbreviateNumber(
-                              Number(item.stats.floorCapUsd).toFixed(0)
+                              Number(item.stats?.floorCapUsd)?.toFixed(0)
                             )}
                             <i className="las la-dollar-sign"></i>
                           </>

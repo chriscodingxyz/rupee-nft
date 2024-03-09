@@ -65,8 +65,8 @@ export default function SearchSection({
 
       <div className=" buttons-container rounded">
         <button
-          className={`${currency === "Eth" ? "bg-red-500 " : ""}`}
-          onClick={() => setCurrency("Eth")}
+          className={`${currency === "Native" ? "bg-red-500 " : ""}`}
+          onClick={() => setCurrency("Native")}
         >
           <i className="lab la-ethereum"></i>
         </button>
