@@ -11,7 +11,7 @@ import About from "./components/About";
 import PageNotFound from "./pages/PageNotFound";
 import CollectionItem from "./components/CollectionItem";
 import HomePage from "./pages/HomePage";
-import supabase from "./services/supabase";
+// import supabase from "./services/supabase";
 
 import { useQuery, useMutation } from "@tanstack/react-query";
 const nftAPI = import.meta.env.VITE_NFTAPI;
