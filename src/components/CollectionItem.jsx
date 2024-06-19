@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import {
+  Trophy,
+  Calendar,
+  Users,
+  Package,
+  DollarSign,
+  Star,
+  Globe,
+} from "lucide-react";
 
 const nftAPI = import.meta.env.VITE_NFTAPI;
 
@@ -67,7 +76,10 @@ export default function CollectionItem() {
           <h2 className="text-lg text-gray-600">
             by {itemDetails.creator?.name || "Unknown"} ({itemStats.slug})
           </h2>
-          <p className="text-lg">Rank #{itemDetails.ranking}</p>
+          <p className="text-lg flex items-center">
+            <Trophy className="mr-2" size={20} />
+            Rank #{itemDetails.ranking}
+          </p>
           <div className="mt-2 flex space-x-4">
             {itemDetails.socialMedia?.map((platform, index) => (
               <a
@@ -88,44 +100,63 @@ export default function CollectionItem() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
-          <h3 className="text-xl font-bold mb-2">Collection Stats</h3>
+          <h3 className="text-2xl font-bold mb-2">Collection Stats</h3>
           <ul className="list-none space-y-1 text-lg">
-            <li>
-              <strong>Supply:</strong> {itemStats.totalSupply}
+            <li className="flex items-center">
+              <Package className="mr-2" size={20} />
+              <strong>Supply:</strong>{" "}
+              <span className="text-sm">{itemStats.totalSupply}</span>
             </li>
-            <li>
-              <strong>Listed:</strong> {itemStats.listedCount}
+            <li className="flex items-center">
+              <Package className="mr-2" size={20} />
+              <strong>Listed:</strong>{" "}
+              <span className="text-sm">{itemStats.listedCount}</span>
             </li>
-            <li>
-              <strong>Unique Owners:</strong> {itemStats.totalOwners}
+            <li className="flex items-center">
+              <Users className="mr-2" size={20} />
+              <strong>Unique Owners:</strong>{" "}
+              <span className="text-sm">{itemStats.totalOwners}</span>
             </li>
-            <li>
+            <li className="flex items-center">
+              <DollarSign className="mr-2" size={20} />
               <strong>Floor (ETH):</strong>{" "}
-              {itemStats.floorInfo.currentFloorNative || "N/A"}
+              <span className="text-sm">
+                {itemStats.floorInfo.currentFloorNative || "N/A"}
+              </span>
             </li>
-            <li>
+            <li className="flex items-center">
+              <DollarSign className="mr-2" size={20} />
               <strong>Floor (USD):</strong>{" "}
-              {itemStats.floorInfo.currentFloorUsd || "N/A"}
+              <span className="text-sm">
+                {itemStats.floorInfo.currentFloorUsd || "N/A"}
+              </span>
             </li>
           </ul>
         </div>
         <div>
-          <h3 className="text-xl font-bold mb-2">Additional Info</h3>
+          <h3 className="text-2xl font-bold mb-2">Additional Info</h3>
           <ul className="list-none space-y-1 text-lg">
-            <li>
-              <strong>Released:</strong> {itemDetails.releaseDate}
+            <li className="flex items-center">
+              <Calendar className="mr-2" size={20} />
+              <strong>Released:</strong>{" "}
+              <span className="text-sm">{itemDetails.releaseDate}</span>
             </li>
-            <li>
-              <strong>Blockchain:</strong> {itemDetails.blockchain}
+            <li className="flex items-center">
+              <Globe className="mr-2" size={20} />
+              <strong>Blockchain:</strong>{" "}
+              <span className="text-sm">{itemDetails.blockchain}</span>
             </li>
-            <li>
+            <li className="flex items-center">
+              <Star className="mr-2" size={20} />
               <strong>Types:</strong>{" "}
-              {Array.isArray(itemDetails.types)
-                ? itemDetails.types.join(", ")
-                : itemDetails.types}
+              <span className="text-sm">
+                {Array.isArray(itemDetails.types)
+                  ? itemDetails.types.join(", ")
+                  : itemDetails.types}
+              </span>
             </li>
             {itemDetails.bestPriceUrl && (
-              <li>
+              <li className="flex items-center">
                 <a
                   href={itemDetails.bestPriceUrl}
                   target="_blank"
@@ -139,11 +170,15 @@ export default function CollectionItem() {
             )}
             {itemDetails.mintPriceEth && itemDetails.mintPriceUsd && (
               <>
-                <li>
-                  <strong>Mint Price (ETH):</strong> {itemDetails.mintPriceEth}
+                <li className="flex items-center">
+                  <DollarSign className="mr-2" size={20} />
+                  <strong>Mint Price (ETH):</strong>{" "}
+                  <span className="text-sm">{itemDetails.mintPriceEth}</span>
                 </li>
-                <li>
-                  <strong>Mint Price (USD):</strong> {itemDetails.mintPriceUsd}
+                <li className="flex items-center">
+                  <DollarSign className="mr-2" size={20} />
+                  <strong>Mint Price (USD):</strong>{" "}
+                  <span className="text-sm">{itemDetails.mintPriceUsd}</span>
                 </li>
               </>
             )}
@@ -152,20 +187,23 @@ export default function CollectionItem() {
       </div>
 
       <div className="border-t pt-4">
-        <h3 className="text-xl font-bold mb-2">Official Links</h3>
+        <h3 className="text-2xl font-bold mb-2">Official Links</h3>
         <div className="flex space-x-4">
-          {itemDetails.marketplaces?.map((marketplace, index) => (
-            <a
-              key={index}
-              href={marketplace.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-            >
-              {marketsObj[marketplace.name]}{" "}
-              <i className="las la-external-link-alt"></i>
-            </a>
-          ))}
+          {itemDetails.marketplaces?.map(
+            (marketplace, index) =>
+              marketsObj[marketplace.name] && (
+                <a
+                  key={index}
+                  href={marketplace.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline flex items-center"
+                >
+                  {marketsObj[marketplace.name]}{" "}
+                  <i className="las la-external-link-alt ml-1"></i>
+                </a>
+              )
+          )}
         </div>
       </div>
     </div>
