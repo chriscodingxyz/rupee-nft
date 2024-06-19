@@ -174,7 +174,7 @@ export default function Collections({
                                 ? "glow-gold"
                                 : ""
                             }`}
-                            src={`https://nftpricefloor.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.nftpricefloor%2Fprojects%2Fv1%2F${item.slug}.png%3Fversion%3D6&w=256&q=75`}
+                            src={`https://s3.amazonaws.com/cdn.nftpricefloor/projects/v1/${item.slug}.png?version=6`}
                             onError={(e) => {
                               e.target.src =
                                 "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/200px-SMPTE_Color_Bars.svg.png";
