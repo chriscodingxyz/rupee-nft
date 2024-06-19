@@ -125,32 +125,28 @@ export default function CollectionItem() {
             </li>
             <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
               <div className="flex items-center">
-                {/* <DollarSign className="mr-2" size={20} /> */}
-                <i className="lab la-ethereum mr-2"></i>
-                <strong>Floor (ETH):</strong>
-              </div>
-              <span className="text-sm">
-                <i className="lab la-ethereum"></i>
-                {itemStats.floorInfo.currentFloorNative || "N/A"}
-              </span>
-            </li>
-            <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
-              <div className="flex items-center">
                 <DollarSign className="mr-2" size={20} />
-                <strong>Floor (USD):</strong>
+                <i className="lab la-ethereum mr-2"></i>
+                <strong>Floor:</strong>
               </div>
-              <span className="text-sm">
-                {itemStats.floorInfo.currentFloorUsd
-                  ? "$" +
-                    Number(itemStats.floorInfo.currentFloorUsd).toLocaleString(
-                      undefined,
-                      {
+              <div className="flex flex-col items-center">
+                <span className="text-xs flex items-center">
+                  {/* <DollarSign className="mr-1" size={16} /> */}
+                  {itemStats.floorInfo.currentFloorUsd
+                    ? "$ " +
+                      Number(
+                        itemStats.floorInfo.currentFloorUsd
+                      ).toLocaleString(undefined, {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 0,
-                      }
-                    )
-                  : "N/A"}
-              </span>
+                      })
+                    : "N/A"}
+                </span>
+                <span className="text-xs flex items-center ml-4">
+                  <i className="lab la-ethereum mr-1"></i>
+                  {itemStats.floorInfo.currentFloorNative || "N/A"}
+                </span>
+              </div>
             </li>
           </ul>
         </div>
