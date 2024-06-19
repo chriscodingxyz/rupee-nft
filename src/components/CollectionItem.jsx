@@ -72,7 +72,12 @@ export default function CollectionItem() {
           alt={itemDetails.name}
         />
         <div>
-          <h1 className="text-3xl font-bold">{itemDetails.name}</h1>
+          <h1
+            className="text-3xl font-bold"
+            style={{ fontFamily: "Silkscreen" }}
+          >
+            {itemDetails.name}
+          </h1>
           <h2 className="text-lg text-gray-600">
             by {itemDetails.creator?.name || "Unknown"} ({itemStats.slug})
           </h2>
@@ -100,7 +105,12 @@ export default function CollectionItem() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="section">
-          <h3 className="text-2xl font-bold mb-2">Collection Stats</h3>
+          <h3
+            className="text-2xl font-bold mb-2"
+            style={{ fontFamily: "Silkscreen" }}
+          >
+            Collection Stats
+          </h3>
           <ul className="list-none space-y-1 text-lg">
             <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
               <div className="flex items-center">
@@ -151,7 +161,12 @@ export default function CollectionItem() {
           </ul>
         </div>
         <div className="section">
-          <h3 className="text-2xl font-bold mb-2">Additional Info</h3>
+          <h3
+            className="text-2xl font-bold mb-2"
+            style={{ fontFamily: "Silkscreen" }}
+          >
+            Additional Info
+          </h3>
           <ul className="list-none space-y-1 text-lg">
             <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
               <div className="flex items-center">
@@ -214,7 +229,12 @@ export default function CollectionItem() {
       </div>
 
       <div className="section border-t pt-4">
-        <h3 className="text-2xl font-bold mb-2">Official Links</h3>
+        <h3
+          className="text-2xl font-bold mb-2"
+          style={{ fontFamily: "Silkscreen" }}
+        >
+          Official Links
+        </h3>
         <div className="flex space-x-4">
           {itemDetails.marketplaces?.map(
             (marketplace, index) =>
