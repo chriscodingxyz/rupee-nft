@@ -125,10 +125,12 @@ export default function CollectionItem() {
             </li>
             <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
               <div className="flex items-center">
-                <DollarSign className="mr-2" size={20} />
+                {/* <DollarSign className="mr-2" size={20} /> */}
+                <i className="lab la-ethereum mr-2"></i>
                 <strong>Floor (ETH):</strong>
               </div>
               <span className="text-sm">
+                <i className="lab la-ethereum"></i>
                 {itemStats.floorInfo.currentFloorNative || "N/A"}
               </span>
             </li>
@@ -138,7 +140,16 @@ export default function CollectionItem() {
                 <strong>Floor (USD):</strong>
               </div>
               <span className="text-sm">
-                {itemStats.floorInfo.currentFloorUsd || "N/A"}
+                {itemStats.floorInfo.currentFloorUsd
+                  ? "$" +
+                    Number(itemStats.floorInfo.currentFloorUsd).toLocaleString(
+                      undefined,
+                      {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      }
+                    )
+                  : "N/A"}
               </span>
             </li>
           </ul>
