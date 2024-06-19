@@ -249,3 +249,18 @@ footer {
 #collectionitem a:hover {
   text-decoration: underline;
 }
+
+/* Section borders and styling */
+.section {
+  border: 1px dashed #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Inner padding */
+  margin-bottom: 16px; /* Space between sections */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+/* Dark theme adjustments */
+.dark-theme .section {
+  border: 1px dashed rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
+  background-color: #222; /* Dark background color */
+}
