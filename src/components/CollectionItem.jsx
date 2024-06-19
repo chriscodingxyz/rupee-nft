@@ -125,8 +125,8 @@ export default function CollectionItem() {
             </li>
             <li className="flex items-center justify-between border-b border-gray-200 pb-2 border-dashed">
               <div className="flex items-center">
-                <DollarSign className="mr-2" size={20} />
-                <i className="lab la-ethereum mr-2"></i>
+                <DollarSign className="" size={20} />
+                <i className="lab la-ethereum"></i>
                 <strong>Floor:</strong>
               </div>
               <div className="flex flex-col items-center">
@@ -142,7 +142,7 @@ export default function CollectionItem() {
                       })
                     : "N/A"}
                 </span>
-                <span className="text-xs flex items-center ml-4">
+                <span className="text-xs flex items-center">
                   <i className="lab la-ethereum mr-1"></i>
                   {itemStats.floorInfo.currentFloorNative || "N/A"}
                 </span>
